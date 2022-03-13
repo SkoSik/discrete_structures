@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class zad1 implements Initializable {
+public class zad3 implements Initializable {
 
     @FXML
     private Button button1;
