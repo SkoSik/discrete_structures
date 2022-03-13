@@ -1,4 +1,4 @@
-package discrete_structures;
+package discrete_structures.task5;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

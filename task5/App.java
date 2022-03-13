@@ -1,4 +1,4 @@
-package discrete_structures;
+package discrete_structures.task5;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +13,9 @@ public class App extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        Pane layout = FXMLLoader.load(App.class.getResource("/discrete_structures/task4/scene.fxml"));
+        Pane layout = FXMLLoader.load(App.class.getResource("/discrete_structures/task5/scene.fxml"));
         primaryStage.setScene(new Scene(layout));
-        primaryStage.setTitle("#4");
+        primaryStage.setTitle("#5");
         primaryStage.show();
     }
 }
