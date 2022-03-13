@@ -5,7 +5,7 @@ public class BinNumber {
     int[] array;
 
     public BinNumber(int number) {
-        array= parseIntToBin(number);
+        array = parseIntToBin(number);
         vars = log2(array.length);
     }
 
@@ -46,7 +46,7 @@ public class BinNumber {
     }
 
     public static int log2(int a) {
-        if(a<=0) throw new ArithmeticException("The logarithm parameter must be greater than 0");
+        if (a <= 0) throw new ArithmeticException("The logarithm parameter must be greater than 0");
         int n = 0;
         while (a != 1) {
             a /= 2;
@@ -60,18 +60,18 @@ public class BinNumber {
     }
 
     public static BinNumber randBinNumberByVar(int _vars) {
-        return new BinNumber(_vars,parseIntToBin(randInt(pow(2,_vars))));
+        return new BinNumber(_vars, parseIntToBin(randInt(pow(2, _vars))));
     }
 
     public static int randInt(int max) {
-        return (int) Math.floor(Math.random() * max)+1;
+        return (int) Math.floor(Math.random() * max) + 1;
     }
 
-    public static int pow(int a, int b){
-        return (int) Math.pow(a,b);
+    public static int pow(int a, int b) {
+        return (int) Math.pow(a, b);
     }
 
-    public static int[] parseIntToBin(int number){
+    public static int[] parseIntToBin(int number) {
         int tmp = log2(number) + 1;
         int new_size = 1, vars = 0;
         while (new_size < tmp) {
@@ -89,7 +89,7 @@ public class BinNumber {
 
     public String toString() {
         String s = "";
-        for (int a : array) s += Integer.toString(a);
+        for (int a : array) s += (a == 0 ? '0' : '1');
         return s;
     }
 }

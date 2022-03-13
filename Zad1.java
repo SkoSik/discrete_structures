@@ -16,8 +16,6 @@ public class Zad1 {
         return (int) Math.pow(a,b);
     }
 
-
-
     public static String toBinaryString(int a){
         int tmp;
         String str="";
@@ -38,6 +36,8 @@ public class Zad1 {
        // BinNumber test = new BinNumber("10000000");
       //  System.out.println(test.parseToInt());
         BinNumber test2 = BinNumber.randBinNumberByVar(3);
+        System.out.println(test2.vars);
+        System.out.println(test2.parseToInt());
         System.out.println(test2);
     }
 
