@@ -35,7 +35,7 @@ public class SceneMain implements Initializable {
         }
         catch (Exception e)
         {
-            error.setText(e.toString());
+            error.setText(e.getMessage());
         }
     }
 

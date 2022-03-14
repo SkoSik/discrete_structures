@@ -62,8 +62,9 @@ public class BinNumber {
     }
 
     public BinNumber getResidual(int ost, int var) {
+        if (var > vars) throw new IllegalArgumentException("Данной переменной нет в функции");
         int[] _array = new int[array.length / 2];
-        int period = 1 << var, j = 0;
+        int period = 1 << (vars - var + 1), j = 0;
         for (int i = 0; i < array.length; i++) {
             if (i % period / (period / 2) == ost) {
                 _array[j++] = array[i];
