@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.task3.SceneMain">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.task3.SceneMain">
    <children>
-      <Label fx:id="label2" layoutX="71.0" layoutY="86.0" prefHeight="26.0" prefWidth="92.0" text="Label" />
-      <Button fx:id="button1" layoutX="79.0" layoutY="162.0" mnemonicParsing="false" onAction="#buttonClicked" text="Проверить" />
-      <Label fx:id="label1" layoutX="26.0" layoutY="31.0" prefHeight="55.0" prefWidth="181.0" text="По заданному вектору функции выбрать её имя" textAlignment="CENTER" wrapText="true" />
-      <ComboBox fx:id="comboBox1" layoutX="41.0" layoutY="127.0" prefWidth="150.0" />
+      <Label layoutX="17.0" layoutY="144.0" text="Вектор:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="button1" layoutX="264.0" layoutY="346.0" mnemonicParsing="false" onAction="#button1Clicked" prefHeight="47.0" prefWidth="128.0" text="Составить вектор" />
+      <TextField fx:id="textfield1" layoutX="253.0" layoutY="273.0" />
+      <TextField fx:id="textfield2" layoutX="253.0" layoutY="309.0" />
+      <Label layoutX="131.0" layoutY="277.0" text="Нулевая остаточная" />
+      <Label layoutX="118.0" layoutY="313.0" text="Единичная остаточная" />
+      <Label layoutX="17.0" layoutY="14.0" text="По нулевой и единичной остаточной составить вектор функции">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="241.0" text="Номер аргумента" />
+
+      <Label fx:id="anslabel" layoutX="117.0" layoutY="144.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="exception" layoutX="21.0" layoutY="198.0" prefHeight="31.0" prefWidth="621.0" textFill="RED">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBox1" layoutX="253.0" layoutY="237.0" prefHeight="25.0" prefWidth="149.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+            </FXCollections>
+         </items>
+      </ComboBox>
    </children>
 </Pane>

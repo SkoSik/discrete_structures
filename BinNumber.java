@@ -19,7 +19,9 @@ public class BinNumber {
 
     public BinNumber(String _array) {
         array = new int[_array.length()];
+        if(array.length == 0) throw new IllegalArgumentException("Нет бинарного числа");
         for (int i = 0; i < _array.length(); i++) {
+            if(_array.charAt(i) != '0' && _array.charAt(i) != '1') throw new IllegalArgumentException("Не бинарное число");
             array[i] = _array.charAt(i) - '0';
         }
         vars = log2(_array.length());
@@ -39,11 +41,15 @@ public class BinNumber {
     }
 
     public BinNumber(BinNumber ost0, BinNumber ost1, int arg) {
-        if (ost0.vars != ost1.vars) throw new IllegalArgumentException("Остаточные не соотвествуют одной функции");
-
+        int S0 = ost0.array.length;
+        int S1 = ost1.array.length;
+//        if (ost0.vars != ost1.vars) throw new IllegalArgumentException("Остаточные не соотвествуют одной функции");
+        if(S0 != S1) throw new IllegalArgumentException("Остаточные не соотвествуют одной функции");
+        if((S0 & (S0-1)) != 0 && (S1 & (S1 - 1)) != 0) throw new IllegalArgumentException("не может быть таких остаточных");
+        if(ost0.vars+1 < arg) throw new IllegalArgumentException("У функции с такими остаточными нет такого аргумента");
         array = new int[ost0.array.length * 2];
         int period = 1 << arg;
-        for (int i = 0, x = 0, y = 0; i < array.length * 2; i++) {
+        for (int i = 0, x = 0, y = 0; i < array.length; i++) {
             int ost = i % period / (period / 2);
             if (ost == 0) array[i] = ost0.array[x++];
             else array[i] = ost1.array[y++];

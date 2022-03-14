@@ -6,30 +6,46 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 import discrete_structures.BinNumber;
+import javafx.scene.control.TextField;
 
-public class SceneMain implements Initializable {
+import javax.swing.*;
 
-    HashMap<String,Integer> vectors = new HashMap<>();
+public class SceneMain  implements Initializable {
+
     @FXML
     private Button button1;
-    @FXML
-    private Label label1, label2;
-    @FXML
-    private ComboBox<String> comboBox1;
 
     @FXML
-    public void buttonClicked() {
-        label2.setText(comboBox1.getSelectionModel().getSelectedItem());
+    private TextField textfield1, textfield2;
+
+    @FXML
+    private Label anslabel, exception;
+
+    @FXML
+    private ComboBox comboBox1;
+
+    @FXML
+    public void button1Clicked() {
+        try{
+            BinNumber nullost = new BinNumber(textfield1.getText());
+            BinNumber edost = new BinNumber(textfield2.getText());
+            int arg = Integer.parseInt((String) comboBox1.getValue());
+            BinNumber vecFunc = new BinNumber(nullost, edost, arg);
+            anslabel.setText(vecFunc.toString());
+            exception.setText("");
+        }
+        catch (Exception e){
+            exception.setText(e.getMessage());
+        }
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        comboBox1.getItems().setAll("Дизъюнкция", "Конъюкция", "Эквивалентность");
-        comboBox1.setValue("Дизъюнкция");
-        label2.setText("Дизъюнкция");
+
     }
 }

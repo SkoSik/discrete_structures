@@ -16,6 +16,7 @@ public class App extends Application {
         Pane layout = FXMLLoader.load(App.class.getResource("/discrete_structures/task3/scene.fxml"));
         primaryStage.setScene(new Scene(layout));
         primaryStage.setTitle("#3");
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
