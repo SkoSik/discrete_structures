@@ -10,26 +10,37 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import discrete_structures.BinNumber;
+import javafx.scene.control.TextField;
 
 public class SceneMain implements Initializable {
 
-    HashMap<String,Integer> vectors = new HashMap<>();
     @FXML
-    private Button button1;
+    private Label label4, error;
     @FXML
-    private Label label1, label2;
+    private TextField textfield1;
     @FXML
-    private ComboBox<String> comboBox1;
+    private ComboBox combobox1, combobox2;
 
     @FXML
-    public void buttonClicked() {
-        label2.setText(comboBox1.getSelectionModel().getSelectedItem());
+    public void buttonClicked()
+    {
+        BinNumber bn = new BinNumber(textfield1.getText());
+        int ost, var;
+        ost = Integer.parseInt((String) combobox1.getValue());
+        var = Integer.parseInt((String) combobox2.getValue());
+        try
+        {
+            String s = bn.getResidual(ost, var).toString();
+            label4.setText(s);
+        }
+        catch (Exception e)
+        {
+            error.setText(e.toString());
+        }
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        comboBox1.getItems().setAll("Дизъюнкция", "Конъюкция", "Эквивалентность");
-        comboBox1.setValue("Дизъюнкция");
-        label2.setText("Дизъюнкция");
+    public void initialize(URL location, ResourceBundle resources)
+    {
     }
 }
