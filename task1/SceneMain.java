@@ -2,35 +2,29 @@ package discrete_structures.task1;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import discrete_structures.BinNumber;
-import javafx.scene.control.TextField;
 
 public class SceneMain implements Initializable {
 
     @FXML
-    private Label label1,label2;
+    private Label label1;
     @FXML
-    private TextField textField1;
+    private ComboBox comboBox1;
 
     @FXML
     public void buttonClicked() {
-        try {
-            int number = Integer.parseInt(textField1.getText());
-            String vector = BinNumber.randBinNumberByVar(number).toString();
-            label1.setText(vector);
-            label2.setText("");
-        } catch (IllegalArgumentException e) {
-            if(e instanceof NumberFormatException) label2.setText("Некорректное значение переменной");
-            else label2.setText(e.getMessage());
-            label1.setText("");
-        }
+        int number = Integer.parseInt((String) comboBox1.getValue());
+        String vector = BinNumber.randBinNumberByVar(number).toString();
+        label1.setText(vector);
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {}
+    public void initialize(URL location, ResourceBundle resources) {
+        comboBox1.setValue("1");
+    }
 }
