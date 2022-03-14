@@ -1,5 +1,8 @@
 package discrete_structures;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class BinNumber {
     int vars;
     int[] array;
@@ -45,14 +48,19 @@ public class BinNumber {
         return sum;
     }
 
-    public static int log2(int a) {
-        if (a <= 0) throw new ArithmeticException("Параметр логарифма должен быть больше 0");
-        int n = 0;
-        while (a != 1) {
-            a /= 2;
-            n++;
+    BinNumber getResidual(int ost, int var) {
+        int[] _array = new int[vars - 1];
+        int period = 1 << var, j = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (i % period / (period / 2) == ost) {
+                _array[j++] = array[i];
+            }
         }
-        return n;
+        return new BinNumber(vars-1,_array);
+    }
+
+    boolean checkFictitiousness(int var) {
+        return getResidual(0,var).equals(getResidual(1,var));
     }
 
     public static BinNumber randBinNumber(int max) {
@@ -60,16 +68,9 @@ public class BinNumber {
     }
 
     public static BinNumber randBinNumberByVar(int _vars) {
-        if(_vars<1 || _vars>5) throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать 5");
+        if (_vars < 1 || _vars > 5)
+            throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать 5");
         return new BinNumber(_vars, parseIntToBin(randInt(pow(2, pow(2, _vars))), _vars));
-    }
-
-    public static int randInt(int max) {
-        return (int) Math.floor(Math.random() * max);
-    }
-
-    public static int pow(int a, int b) {
-        return (int) Math.pow(a, b);
     }
 
     public static int[] parseIntToBin(int number) {
@@ -101,14 +102,45 @@ public class BinNumber {
         return array;
     }
 
+    public static int randInt(int max) {
+        return (int) Math.floor(Math.random() * max);
+    }
+
+    public static int pow(int a, int b) {
+        return (int) Math.pow(a, b);
+    }
+
+    public static int log2(int a) {
+        if (a <= 0) throw new ArithmeticException("Параметр логарифма должен быть больше 0");
+        int n = 0;
+        while (a != 1) {
+            a /= 2;
+            n++;
+        }
+        return n;
+    }
+
     public String toString() {
         String s = "";
-        int tmp=1;
+        int tmp = 1;
         for (int a : array) {
             s += Integer.toString(a);
-            if(tmp%4==0) s+=" ";
+            if (tmp % 4 == 0) s += " ";
             tmp++;
         }
         return s;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BinNumber binNumber = (BinNumber) o;
+        return vars == binNumber.vars && Arrays.equals(array, binNumber.array);
+    }
+
+    public int hashCode() {
+        int result = Objects.hash(vars);
+        result = 31 * result + Arrays.hashCode(array);
+        return result;
     }
 }
