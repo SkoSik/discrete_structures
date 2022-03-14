@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import discrete_structures.BinNumber;
 
 public class SceneMain implements Initializable {
@@ -19,8 +20,7 @@ public class SceneMain implements Initializable {
     @FXML
     public void buttonClicked() {
         int number = Integer.parseInt((String) comboBox1.getValue());
-        String vector = BinNumber.randBinNumberByVar(number).toString();
-        label1.setText(vector);
+        label1.setText(BinNumber.randBinNumberByVar(number).toString());
     }
 
     @Override

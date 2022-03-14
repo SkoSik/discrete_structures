@@ -38,6 +38,19 @@ public class BinNumber {
         vars = _vars;
     }
 
+    public BinNumber(BinNumber ost0, BinNumber ost1, int arg) {
+        if (ost0.vars != ost1.vars) throw new IllegalArgumentException("Остаточные не соотвествуют одной функции");
+
+        array = new int[ost0.array.length * 2];
+        int period = 1 << arg;
+        for (int i = 0, x = 0, y = 0; i < array.length * 2; i++) {
+            int ost = i % period / (period / 2);
+            if (ost == 0) array[i] = ost0.array[x++];
+            else array[i] = ost1.array[y++];
+        }
+        vars = ost0.vars + 1;
+    }
+
     int parseToInt() {
         int b = pow(2, array.length - 1), sum = 0;
         for (int a : array) {
@@ -56,11 +69,11 @@ public class BinNumber {
                 _array[j++] = array[i];
             }
         }
-        return new BinNumber(vars-1,_array);
+        return new BinNumber(vars - 1, _array);
     }
 
     boolean checkFictitiousness(int var) {
-        return getResidual(0,var).equals(getResidual(1,var));
+        return getResidual(0, var).equals(getResidual(1, var));
     }
 
     public static BinNumber randBinNumber(int max) {
