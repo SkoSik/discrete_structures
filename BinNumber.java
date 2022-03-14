@@ -4,49 +4,43 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class BinNumber {
-    int vars;
-    int[] array;
+    public int vars;
+    public int[] array;
 
     public BinNumber(int number) {
-        array = parseIntToBin(number);
-        vars = log2(array.length);
+        setArray(parseIntToBin(number));
+        setVars(log2(array.length));
     }
 
     public BinNumber(int[] _array) {
-        array = _array;
-        vars = log2(array.length);
+        setArray(_array);
+        setVars(log2(array.length));
     }
 
     public BinNumber(String _array) {
-        array = new int[_array.length()];
-        if(array.length == 0) throw new IllegalArgumentException("Нет бинарного числа");
-        for (int i = 0; i < _array.length(); i++) {
-            if(_array.charAt(i) != '0' && _array.charAt(i) != '1') throw new IllegalArgumentException("Не бинарное число");
-            array[i] = _array.charAt(i) - '0';
-        }
-        vars = log2(_array.length());
+        setArray(_array);
+        setVars(log2(array.length));
     }
 
     public BinNumber(int _vars, int[] _array) {
-        array = _array;
-        vars = _vars;
+        setArray(_array);
+        setVars(_vars);
     }
 
     public BinNumber(int _vars, String _array) {
-        array = new int[_array.length()];
-        for (int i = 0; i < _array.length(); i++) {
-            array[i] = _array.charAt(i) - '0';
-        }
-        vars = _vars;
+        setArray(_array);
+        setVars(_vars);
     }
 
     public BinNumber(BinNumber ost0, BinNumber ost1, int arg) {
         int S0 = ost0.array.length;
         int S1 = ost1.array.length;
 
-        if(S0 != S1) throw new IllegalArgumentException("Остаточные не соотвествуют одной функции");
-        if((S0 & (S0-1)) != 0 && (S1 & (S1 - 1)) != 0) throw new IllegalArgumentException("не может быть таких остаточных");
-        if(ost0.vars+1 < arg) throw new IllegalArgumentException("У функции с такими остаточными нет такого аргумента");
+        if (S0 != S1) throw new IllegalArgumentException("Остаточные не соотвествуют одной функции");
+        if ((S0 & (S0 - 1)) != 0 && (S1 & (S1 - 1)) != 0)
+            throw new IllegalArgumentException("Заданных остаточных не существует");
+        if (ost0.vars + 1 < arg)
+            throw new IllegalArgumentException("У функции с такими остаточными нет заданной переменной");
         array = new int[ost0.array.length * 2];
         int period = 1 << arg;
         for (int i = 0, x = 0, y = 0; i < array.length; i++) {
@@ -57,7 +51,7 @@ public class BinNumber {
         vars = ost0.vars + 1;
     }
 
-    int parseToInt() {
+    public int parseToInt() {
         int b = pow(2, array.length - 1), sum = 0;
         for (int a : array) {
             if (b == 0) b = 1;
@@ -68,7 +62,7 @@ public class BinNumber {
     }
 
     public BinNumber getResidual(int ost, int var) {
-        int[] _array = new int[array.length/2];
+        int[] _array = new int[array.length / 2];
         int period = 1 << var, j = 0;
         for (int i = 0; i < array.length; i++) {
             if (i % period / (period / 2) == ost) {
@@ -78,7 +72,7 @@ public class BinNumber {
         return new BinNumber(vars - 1, _array);
     }
 
-    boolean checkFictitiousness(int var) {
+    public boolean checkFictitiousness(int var) {
         return getResidual(0, var).equals(getResidual(1, var));
     }
 
@@ -87,8 +81,6 @@ public class BinNumber {
     }
 
     public static BinNumber randBinNumberByVar(int _vars) {
-        if (_vars < 1 || _vars > 5)
-            throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать 5");
         return new BinNumber(_vars, parseIntToBin(randInt(pow(2, pow(2, _vars))), _vars));
     }
 
@@ -119,6 +111,29 @@ public class BinNumber {
             number /= 2;
         }
         return array;
+    }
+
+    public void setVars(int _vars) {
+        if (_vars < 1 || _vars > 5)
+            throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать 5");
+        vars = _vars;
+    }
+
+    public void setArray(String _array) {
+        array = new int[_array.length()];
+        if (array.length == 0) throw new IllegalArgumentException("Данная строка не является булевой функцией");
+        for (int i = 0; i < _array.length(); i++) {
+            if (_array.charAt(i) != '0' && _array.charAt(i) != '1')
+                throw new IllegalArgumentException("Данная строка не является булевой функцией");
+            array[i] = _array.charAt(i) - '0';
+        }
+    }
+
+    public void setArray(int[] _array) {
+        for (int a : _array) {
+            if (a != 0 && a != 1) throw new IllegalArgumentException("Данный массив не является булевой функцией");
+        }
+        array = _array;
     }
 
     public static int randInt(int max) {
