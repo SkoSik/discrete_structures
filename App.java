@@ -39,7 +39,7 @@ public class App extends Application {
         primaryStage.setScene(new Scene(layout));
     }
 
-    public static App getInstance() {
-        return instance;
+    public static void openWeb(String url){
+        instance.getHostServices().showDocument(url);
     }
 }

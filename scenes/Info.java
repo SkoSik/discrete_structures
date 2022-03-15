@@ -20,7 +20,7 @@ public class Info implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         hyperlink.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                App.getInstance().getHostServices().showDocument("https://github.com/SkoSik/discrete_structures");
+                App.openWeb("https://github.com/SkoSik/discrete_structures");
             }
         });
     }

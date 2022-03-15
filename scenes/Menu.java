@@ -1,14 +1,10 @@
 package discrete_structures.scenes;
 
 import discrete_structures.App;
-import discrete_structures.BinNumber;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +18,7 @@ public class Menu implements Initializable {
 
     @FXML
     public void changeSceneTask1(ActionEvent e) throws IOException {
+        System.out.println(e.getSource());
         App.changeScene("task1");
     }
 
