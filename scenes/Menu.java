@@ -18,7 +18,6 @@ public class Menu implements Initializable {
 
     @FXML
     public void changeSceneTask1(ActionEvent e) throws IOException {
-        System.out.println(e.getSource());
         App.changeScene("task1");
     }
 

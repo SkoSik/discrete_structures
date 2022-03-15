@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Task4">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Task7">
    <children>
       <Label fx:id="label2" alignment="CENTER" layoutX="122.0" layoutY="166.0" prefHeight="26.0" prefWidth="357.0" textAlignment="CENTER">
          <font>
@@ -26,7 +26,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="379.0" layoutY="292.0" mnemonicParsing="false" onAction="#buttonReload" prefHeight="41.0" prefWidth="41.0" text="🗘">
+      <Button alignment="CENTER" layoutX="379.0" layoutY="292.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" text="🗘">
          <font>
             <Font size="17.0" />
          </font>

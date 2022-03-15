@@ -20,7 +20,7 @@ public class Task1 implements Initializable {
     @FXML
     public void buttonClicked() {
         int number = Integer.parseInt((String) comboBox1.getValue());
-        label1.setText(BinNumber.randBinNumberByVar(number).toString());
+        label1.setText(BinNumber.randBinNumberByVar(number).toOutput());
     }
 
     @Override

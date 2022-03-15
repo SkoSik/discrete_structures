@@ -12,6 +12,11 @@ public class BinNumber {
         setVars(log2(array.length));
     }
 
+    public BinNumber(int number, int vars) {
+        setArray(parseIntToBin(number, vars));
+        setVars(vars);
+    }
+
     public BinNumber(int[] _array) {
         setArray(_array);
         setVars(log2(array.length));
@@ -49,6 +54,23 @@ public class BinNumber {
             else array[i] = ost1.array[y++];
         }
         vars = ost0.vars + 1;
+    }
+
+    public BinNumber(SDNF sdnf, int _vars) {
+        setVars(_vars);
+        array = new int[pow(2, vars)];
+        for (BinNumber a : sdnf.set) {
+            array[a.parseToInt()] = 1;
+        }
+    }
+
+    public BinNumber(SKNF sknf, int _vars) {
+        setVars(_vars);
+        array = new int[pow(2, vars)];
+        Arrays.fill(array,1);
+        for (BinNumber a : sknf.set) {
+            array[a.parseToInt()] = 0;
+        }
     }
 
     public int parseToInt() {
@@ -167,6 +189,14 @@ public class BinNumber {
     }
 
     public String toString() {
+        String s = "";
+        for (int a : array) {
+            s += Integer.toString(a);
+        }
+        return s;
+    }
+
+    public String toOutput() {
         String s = "";
         int tmp = 1;
         for (int a : array) {

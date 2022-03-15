@@ -13,7 +13,7 @@ import java.util.*;
 import discrete_structures.BinNumber;
 import javafx.scene.paint.Color;
 
-public class Task4 implements Initializable {
+public class Task10 implements Initializable {
 
     Map<String, BinNumber> vectors = new HashMap<>();
     BinNumber binNumber;
@@ -33,8 +33,8 @@ public class Task4 implements Initializable {
         comboBox1.setValue(list.get(0));
 
         binNumber = BinNumber.randBinNumberByVar(2);
-        label2.setText(binNumber.toOutput());
-
+        label2.setText(binNumber.toString());
+        
         label3.setText("");
         button1.setDisable(false);
     }
