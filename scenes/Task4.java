@@ -1,4 +1,4 @@
-package discrete_structures.task4;
+package discrete_structures.scenes;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,15 +9,14 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+
 import discrete_structures.BinNumber;
 
-public class SceneMain implements Initializable {
+public class Task4 implements Initializable {
 
-    HashMap<String,Integer> vectors = new HashMap<>();
+    String[] vectors;
     @FXML
-    private Button button1;
-    @FXML
-    private Label label1, label2;
+    private Label label2;
     @FXML
     private ComboBox<String> comboBox1;
 
@@ -28,7 +27,8 @@ public class SceneMain implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        comboBox1.getItems().setAll("Дизъюнкция", "Конъюкция", "Эквивалентность");
+        vectors= new String[]{"Дизъюнкция", "Конъюкция", "Эквивалентность"};
+        comboBox1.getItems().setAll(vectors);
         comboBox1.setValue("Дизъюнкция");
         label2.setText("Дизъюнкция");
     }

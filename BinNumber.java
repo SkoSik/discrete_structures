@@ -61,6 +61,17 @@ public class BinNumber {
         return sum;
     }
 
+    public int getValue(int id) {
+        if (id >= array.length)
+            throw new IllegalArgumentException("Для данного набора не существует значения в функции");
+        return array[id];
+    }
+
+    public int getValue(String vector) {
+        BinNumber binNumber = new BinNumber(vector);
+        return getValue(binNumber.parseToInt());
+    }
+
     public BinNumber getResidual(int ost, int var) {
         if (var > vars) throw new IllegalArgumentException("Данной переменной нет в функции");
         int[] _array = new int[array.length / 2];

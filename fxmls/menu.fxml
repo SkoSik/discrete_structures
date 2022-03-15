@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+
+<MenuBar prefHeight="25.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Menu">
+   <menus>
+      <Menu mnemonicParsing="false" text="Алгоритмы">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask1" text="Случайная функция" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask2" text="Остаточная функции" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask3" text="Функция по остаточным" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask8" text="СДНФ" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask9" text="СКНФ" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask12" text="ДНФ" />
+         </items>
+      </Menu>
+      <Menu mnemonicParsing="false" text="Игры">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask4" text="Имя функции" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask5" text="Существенные и фиктивные переменные" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask6" text="ДНФ" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask7" text="КНФ" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask10" text="Замкнутые классы" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneTask11" text="Полные системы" />
+         </items>
+      </Menu>
+      <Menu mnemonicParsing="false" text="Инфо">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneInfo" text="О программе" />
+         </items></Menu>
+   </menus>
+</MenuBar>

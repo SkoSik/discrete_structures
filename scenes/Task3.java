@@ -1,4 +1,4 @@
-package discrete_structures.task3;
+package discrete_structures.scenes;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,12 +9,13 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import discrete_structures.BinNumber;
 import javafx.scene.control.TextField;
 
 import javax.swing.*;
 
-public class SceneMain  implements Initializable {
+public class Task3 implements Initializable {
 
     @FXML
     private Button button1;
@@ -30,15 +31,14 @@ public class SceneMain  implements Initializable {
 
     @FXML
     public void button1Clicked() {
-        try{
+        try {
             BinNumber nullost = new BinNumber(textfield1.getText());
             BinNumber edost = new BinNumber(textfield2.getText());
             int arg = Integer.parseInt((String) comboBox1.getValue());
             BinNumber vecFunc = new BinNumber(nullost, edost, arg);
             anslabel.setText(vecFunc.toString());
             exception.setText("");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             exception.setText(e.getMessage());
         }
 

@@ -1,4 +1,4 @@
-package discrete_structures.task1;
+package discrete_structures.scenes;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 import discrete_structures.BinNumber;
 
-public class SceneMain implements Initializable {
+public class Task1 implements Initializable {
 
     @FXML
     private Label label1;
