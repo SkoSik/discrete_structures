@@ -12,18 +12,18 @@ public abstract class NF {
 
     public NF(String[] masks,int _vars) {
         set = new HashSet<>();
+        vars=_vars;
         for (String a : masks) {
             buildSDNFbyMask(a.toCharArray(), 0);
         }
-        vars=_vars;
     }
 
     public NF(ArrayList<char[]> masks,int _vars) {
         set = new HashSet<>();
+        vars=_vars;
         for (char[] a : masks) {
             buildSDNFbyMask(a, 0);
         }
-        vars=_vars;
     }
 
     private void buildSDNFbyMask(char[] s, int i) {

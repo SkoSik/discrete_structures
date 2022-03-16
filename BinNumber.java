@@ -76,7 +76,6 @@ public class BinNumber {
     public int parseToInt() {
         int b = pow(2, array.length - 1), sum = 0;
         for (int a : array) {
-            if (b == 0) b = 1;
             sum += a * b;
             b /= 2;
         }
