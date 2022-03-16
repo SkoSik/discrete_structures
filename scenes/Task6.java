@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import discrete_structures.Mask;
 import discrete_structures.SDNF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,9 +20,10 @@ import static discrete_structures.BinNumber.pow;
 public class Task6 implements Initializable {
     BinNumber bin;
 
-    ArrayList<char[]> mask = new ArrayList<>();
-    ArrayList<int[]> varExistence = new ArrayList<>();
-    int curmask = 0;
+//    ArrayList<char[]> mask = new ArrayList<>();
+//    ArrayList<int[]> varExistence = new ArrayList<>();
+//    int curmask = 0;
+    Mask mask;
 
     @FXML
     Button btn1, btn2, btn3, btn4, btn5, btnNot, btnOr, megabtn, btnDelete;
@@ -78,14 +80,7 @@ public class Task6 implements Initializable {
             if(DNF.charAt(DNF.length()-1) == 'V')
                 return;
 
-            curmask++;
-            mask.add(new char[bin.vars]);
-            varExistence.add(new int[bin.vars]);
-
-            for(int i = 0; i < bin.vars; i++) {
-                mask.get(curmask)[i] = 'x';
-                varExistence.get(curmask)[i] = 0;
-            }
+            mask.newMask();
 
             DNF += "V";
             textarea.setText(DNF);
@@ -98,14 +93,16 @@ public class Task6 implements Initializable {
     @FXML
     public void megabtnClicked() {
         try {
+//            for(char[] i : mask.getVarState()){
+//                System.out.println(i);
+//            }
             if (DNF.length() != 0 && (DNF.charAt(DNF.length() - 1) == 'V' || DNF.charAt(DNF.length() - 1) == '¬'))
                 throw new Exception("закончите выражение");
-            SDNF solution = new SDNF(mask, bin.vars);
+            SDNF solution = new SDNF(mask.getVarState(), bin.vars);
             BinNumber b = new BinNumber(solution, bin.vars);
             if(b.equals(bin) || (DNF.length() == 0 && bin.parseToInt() == 0)) {
                 label.setTextFill(Color.color(0, 0.7, 0));
                 label.setText("Правильно");
-//                label.setTextFill(Color.color(0.7, 0, 0));
             }
             else {
                 label.setTextFill(Color.color(0.7, 0, 0));
@@ -131,14 +128,13 @@ public class Task6 implements Initializable {
         char Symb = DNF.charAt(DNFsz - 1);
         int ind = Symb - '0' - 1;
         if(Symb >= '1' && Symb <= '9') {
-            if(--varExistence.get(curmask)[ind] == 0)
-                mask.get(curmask)[ind] = 'x';
+            mask.decreaseEx(ind);
+            if(mask.checkEx(ind) == 0)
+                mask.changeState(ind, 'x');
             DNF = DNF.substring(0, DNFsz - 2);
         }
         else if(Symb == 'V') {
-            mask.remove(curmask);
-            varExistence.remove(curmask);
-            curmask--;
+            mask.deleteOneMask();
             DNF = DNF.substring(0, DNFsz - 1);
         }
         else
@@ -153,12 +149,17 @@ public class Task6 implements Initializable {
     }
 
     public void btnClick(int i){
-        if(checkNot())
-            mask.get(curmask)[i] = '0';
-        else if(mask.get(curmask)[i] != 0)
-            mask.get(curmask)[i] = '1';
+//        if(checkNot())
+//            mask.get(curmask)[i] = '0';
+//        else if(mask.get(curmask)[i] != '0')
+//            mask.get(curmask)[i] = '1';
 
-        varExistence.get(curmask)[i]++;
+        if(checkNot())
+            mask.changeState(i, '0');
+        else if(mask.checkState(i) != '0')
+            mask.changeState(i, '1');
+
+        mask.increaseEx(i);
         String str = "x" + String.valueOf(i+1);
         DNF += str;
         textarea.setText(DNF);
@@ -174,15 +175,16 @@ public class Task6 implements Initializable {
         for(int i = 0; i < 5; i++)
             b[i].setVisible(i < bin.vars);
 
-        curmask = 0;
-        mask.clear();
-        varExistence.clear();
-        mask.add(new char[bin.vars]);
-        varExistence.add(new int[bin.vars]);
-        for(int i = 0; i < bin.vars; i++) {
-            varExistence.get(curmask)[i] = 0;
-            mask.get(curmask)[i] = 'x';
-        }
+//        curmask = 0;
+//        mask.clear();
+//        varExistence.clear();
+//        mask.add(new char[bin.vars]);
+//        varExistence.add(new int[bin.vars]);
+//        for(int i = 0; i < bin.vars; i++) {
+//            varExistence.get(curmask)[i] = 0;
+//            mask.get(curmask)[i] = 'x';
+//        }
+        mask = new Mask(bin.vars);
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
