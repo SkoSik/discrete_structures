@@ -17,7 +17,6 @@ public class Task6 implements Initializable {
     ArrayList<int[]> mask = new ArrayList<>();
     ArrayList<int[]> varExistence = new ArrayList<>();
     int curmask = 0;
-    int[] inps;
 
     @FXML
     Button btn1, btn2, btn3, btn4, btn5, btnNot, btnOr, megabtn, btnDelete;
