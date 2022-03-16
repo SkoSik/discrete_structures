@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import discrete_structures.SDNF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -11,10 +12,12 @@ import java.util.Set;
 
 import discrete_structures.BinNumber;
 
+import static discrete_structures.BinNumber.log2;
+
 public class Task6 implements Initializable {
     BinNumber bin;
 
-    ArrayList<int[]> mask = new ArrayList<>();
+    ArrayList<char[]> mask = new ArrayList<>();
     ArrayList<int[]> varExistence = new ArrayList<>();
     int curmask = 0;
 
@@ -75,11 +78,11 @@ public class Task6 implements Initializable {
                 return;
 
             curmask++;
-            mask.add(new int[bin.vars]);
+            mask.add(new char[bin.vars]);
             varExistence.add(new int[bin.vars]);
 
             for(int i = 0; i < bin.vars; i++) {
-                mask.get(curmask)[i] = 2;
+                mask.get(curmask)[i] = 'x';
                 varExistence.get(curmask)[i] = 0;
             }
 
@@ -97,12 +100,13 @@ public class Task6 implements Initializable {
             if(DNF.length() == 0) return;
             char symb = DNF.charAt(DNF.length() - 1);
             if (symb == 'V' || symb == '¬') throw new Exception("закончите выражение");
-            for (int[] i : mask) {
+            for (char[] i : mask) {
                 for (int j = 0; j < bin.vars; j++)
                     System.out.print(i[j]);
                 System.out.print(" ");
             }
             System.out.println();
+            SDNF solution = new SDNF(mask);
         }
         catch (Exception e){
             exception.setText(e.getMessage());
@@ -122,7 +126,7 @@ public class Task6 implements Initializable {
         int ind = Symb - '0' - 1;
         if(Symb >= '1' && Symb <= '9') {
             if(--varExistence.get(curmask)[ind] == 0)
-                mask.get(curmask)[ind] = 2;
+                mask.get(curmask)[ind] = 'x';
             DNF = DNF.substring(0, DNFsz - 2);
         }
         else if(Symb == 'V') {
@@ -144,9 +148,9 @@ public class Task6 implements Initializable {
 
     public void btnClick(int i){
         if(checkNot())
-            mask.get(curmask)[i] = 0;
+            mask.get(curmask)[i] = '0';
         else if(mask.get(curmask)[i] != 0)
-            mask.get(curmask)[i] = 1;
+            mask.get(curmask)[i] = '1';
 
         varExistence.get(curmask)[i]++;
         String str = "x" + String.valueOf(i+1);
@@ -157,11 +161,11 @@ public class Task6 implements Initializable {
         bin = BinNumber.randBinNumberByVar(BinNumber.randInt(5)+1);
         mask.clear();
         varExistence.clear();
-        mask.add(new int[bin.vars]);
+        mask.add(new char[bin.vars]);
         varExistence.add(new int[bin.vars]);
         for(int i = 0; i < bin.vars; i++) {
             varExistence.get(curmask)[i] = 0;
-            mask.get(curmask)[i] = 2;
+            mask.get(curmask)[i] = 'x';
         }
         Button[] b = {btn1, btn2, btn3, btn4, btn5};
         for(int i = 0; i < 5; i++) {
