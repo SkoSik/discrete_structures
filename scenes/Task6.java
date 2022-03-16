@@ -20,9 +20,7 @@ import static discrete_structures.BinNumber.pow;
 public class Task6 implements Initializable {
     BinNumber bin;
 
-//    ArrayList<char[]> mask = new ArrayList<>();
-//    ArrayList<int[]> varExistence = new ArrayList<>();
-//    int curmask = 0;
+
     Mask mask;
 
     @FXML
