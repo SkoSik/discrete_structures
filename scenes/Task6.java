@@ -11,8 +11,10 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import discrete_structures.BinNumber;
+import javafx.scene.paint.Color;
 
 import static discrete_structures.BinNumber.log2;
+import static discrete_structures.BinNumber.pow;
 
 public class Task6 implements Initializable {
     BinNumber bin;
@@ -28,8 +30,7 @@ public class Task6 implements Initializable {
     TextArea textarea;
 
     @FXML
-    Label exception, label2;
-
+    Label label, label2;
     String DNF = "";
 
     @FXML
@@ -90,30 +91,35 @@ public class Task6 implements Initializable {
             textarea.setText(DNF);
         }
         catch (Exception e){
-            exception.setText(e.getMessage());
+            label.setText(e.getMessage());
         }
     }
 
     @FXML
     public void megabtnClicked() {
         try {
-            if(DNF.length() == 0) return;
-            char symb = DNF.charAt(DNF.length() - 1);
-            if (symb == 'V' || symb == '¬') throw new Exception("закончите выражение");
-            for (char[] i : mask) {
-                for (int j = 0; j < bin.vars; j++)
-                    System.out.print(i[j]);
-                System.out.print(" ");
+            if (DNF.length() != 0 && (DNF.charAt(DNF.length() - 1) == 'V' || DNF.charAt(DNF.length() - 1) == '¬'))
+                throw new Exception("закончите выражение");
+            SDNF solution = new SDNF(mask, bin.vars);
+            BinNumber b = new BinNumber(solution, bin.vars);
+            if(b.equals(bin) || (DNF.length() == 0 && bin.parseToInt() == 0)) {
+                label.setTextFill(Color.color(0, 0.7, 0));
+                label.setText("Правильно");
+//                label.setTextFill(Color.color(0.7, 0, 0));
             }
-            System.out.println();
-            SDNF solution = new SDNF(mask);
+            else {
+                label.setTextFill(Color.color(0.7, 0, 0));
+                label.setText("Неправильно");
+            }
         }
         catch (Exception e){
-            exception.setText(e.getMessage());
+            label.setText(e.getMessage());
         }
     }
     @FXML
     public void btnNextClicked(){
+        DNF = "";
+        textarea.setText("");
         initNewTask();
     }
 
@@ -157,8 +163,18 @@ public class Task6 implements Initializable {
         DNF += str;
         textarea.setText(DNF);
     }
+
     public void initNewTask(){
+        label.setTextFill(Color.color(0.7, 0, 0));
+        label.setText("");
+        textarea.setText("");
         bin = BinNumber.randBinNumberByVar(BinNumber.randInt(5)+1);
+        label2.setText(bin.toString());
+        Button[] b = {btn1, btn2, btn3, btn4, btn5};
+        for(int i = 0; i < 5; i++)
+            b[i].setVisible(i < bin.vars);
+
+        curmask = 0;
         mask.clear();
         varExistence.clear();
         mask.add(new char[bin.vars]);
@@ -167,11 +183,6 @@ public class Task6 implements Initializable {
             varExistence.get(curmask)[i] = 0;
             mask.get(curmask)[i] = 'x';
         }
-        Button[] b = {btn1, btn2, btn3, btn4, btn5};
-        for(int i = 0; i < 5; i++) {
-            b[i].setVisible(i < bin.vars);
-        }
-        label2.setText(bin.toString());
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
