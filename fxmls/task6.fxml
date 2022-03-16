@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task6old">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task6">
    <Button fx:id="megabtn" layoutX="218.0" layoutY="340.0" mnemonicParsing="false" onAction="#megabtnClicked" prefHeight="43.0" prefWidth="165.0" text="Кнопка" />
    <Button fx:id="btn1" layoutX="41.0" layoutY="234.0" mnemonicParsing="false" onAction="#btn1Clicked" prefHeight="52.0" prefWidth="52.0" text="X1" />
    <Button fx:id="btn2" layoutX="102.0" layoutY="234.0" mnemonicParsing="false" onAction="#btn2Clicked" prefHeight="52.0" prefWidth="52.0" text="X2" />
