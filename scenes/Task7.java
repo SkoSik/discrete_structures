@@ -34,7 +34,7 @@ public class Task7 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SKNF sknf = new SKNF(new String[]{"1xx", "000"});
+        SKNF sknf = new SKNF(new String[]{"1xx", "000"},3);
         BinNumber bn = new BinNumber(sknf, 3);
         System.out.println(bn);
     }

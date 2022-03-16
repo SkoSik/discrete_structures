@@ -7,25 +7,28 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class NF {
+    int vars;
     Set<BinNumber> set;
 
-    public NF(String[] masks) {
+    public NF(String[] masks,int _vars) {
         set = new HashSet<>();
         for (String a : masks) {
             buildSDNFbyMask(a.toCharArray(), 0);
         }
+        vars=_vars;
     }
 
-    public NF(ArrayList<char[]> masks) {
+    public NF(ArrayList<char[]> masks,int _vars) {
         set = new HashSet<>();
         for (char[] a : masks) {
             buildSDNFbyMask(a, 0);
         }
+        vars=_vars;
     }
 
     private void buildSDNFbyMask(char[] s, int i) {
         if (i == s.length) {
-            set.add(new BinNumber(String.valueOf(s)));
+            set.add(new BinNumber(vars,String.valueOf(s)));
             return;
         }
         if (s[i] == 'x') {

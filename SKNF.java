@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 
 public class SKNF extends NF {
 
-    public SKNF(String[] masks) {
-        super(masks);
+    public SKNF(String[] masks,int _vars) {
+        super(masks, _vars);
     }
 
-    public SKNF(ArrayList<char[]> masks) {
-        super(masks);
+    public SKNF(ArrayList<char[]> masks,int _vars) {
+        super(masks, _vars);
     }
 
     public String toString() {

@@ -8,12 +8,12 @@ import java.util.stream.Collectors;
 
 public class SDNF extends NF {
 
-    public SDNF(String[] masks) {
-        super(masks);
+    public SDNF(String[] masks,int _vars) {
+        super(masks, _vars);
     }
 
-    public SDNF(ArrayList<char[]> masks) {
-        super(masks);
+    public SDNF(ArrayList<char[]> masks,int _vars) {
+        super(masks, _vars);
     }
 
     public String toString() {
