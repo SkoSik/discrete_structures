@@ -5,11 +5,16 @@ import java.util.ArrayList;
 public class Mask {
     ArrayList<char[]> varState = new ArrayList<>();
     ArrayList<int[]> varExistence = new ArrayList<>();
-    int curmask, vars;
+    int curmask = 0, vars = 0;
     public Mask(int _vars){
         vars = _vars;
         curmask = 0;
         initNewMask();
+    }
+    public Mask(){
+        vars = curmask = 0;
+        varExistence = new ArrayList<>();
+        varState = new ArrayList<>();
     }
     public void newMask(){
         curmask++;
@@ -45,5 +50,8 @@ public class Mask {
     }
     public ArrayList<char[]> getVarState(){
         return varState;
+    }
+    public int getCurmask(){
+        return curmask;
     }
 }

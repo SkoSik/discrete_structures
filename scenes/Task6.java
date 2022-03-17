@@ -14,13 +14,10 @@ import java.util.Set;
 import discrete_structures.BinNumber;
 import javafx.scene.paint.Color;
 
-import static discrete_structures.BinNumber.log2;
-import static discrete_structures.BinNumber.pow;
 
 public class Task6 implements Initializable {
+
     BinNumber bin;
-
-
     Mask mask;
 
     @FXML
@@ -60,6 +57,7 @@ public class Task6 implements Initializable {
 
     @FXML
     public void btnNotClicked() {
+        label.setText("");
         if(DNF.length() != 0 && DNF.charAt(DNF.length()-1) == '¬')
             DNF = DNF.substring(0,DNF.length()-1);
         else
@@ -70,6 +68,7 @@ public class Task6 implements Initializable {
 
     @FXML
     public void btnOrClicked() {
+        label.setText("");
         try{
             if(DNF.length() == 0)
                 throw new Exception("нельзя ставить V в самом начале");
@@ -84,35 +83,32 @@ public class Task6 implements Initializable {
             textarea.setText(DNF);
         }
         catch (Exception e){
-            label.setText(e.getMessage());
+            message(false, e.getMessage());
         }
     }
 
     @FXML
     public void megabtnClicked() {
+        label.setText("");
         try {
-//            for(char[] i : mask.getVarState()){
-//                System.out.println(i);
-//            }
             if (DNF.length() != 0 && (DNF.charAt(DNF.length() - 1) == 'V' || DNF.charAt(DNF.length() - 1) == '¬'))
                 throw new Exception("закончите выражение");
             SDNF solution = new SDNF(mask.getVarState(), bin.vars);
             BinNumber b = new BinNumber(solution, bin.vars);
-            if(b.equals(bin) || (DNF.length() == 0 && bin.parseToInt() == 0)) {
-                label.setTextFill(Color.color(0, 0.7, 0));
-                label.setText("Правильно");
+            if((!DNF.isEmpty() && b.equals(bin)) || (DNF.isEmpty() && bin.parseToInt() == 0)) {
+                message(true, "Правильно");
             }
             else {
-                label.setTextFill(Color.color(0.7, 0, 0));
-                label.setText("Неправильно");
+                message(false, "Неправильно");
             }
         }
         catch (Exception e){
-            label.setText(e.getMessage());
+            message(false, e.getMessage());
         }
     }
     @FXML
     public void btnNextClicked(){
+        label.setText("");
         DNF = "";
         textarea.setText("");
         initNewTask();
@@ -147,11 +143,7 @@ public class Task6 implements Initializable {
     }
 
     public void btnClick(int i){
-//        if(checkNot())
-//            mask.get(curmask)[i] = '0';
-//        else if(mask.get(curmask)[i] != '0')
-//            mask.get(curmask)[i] = '1';
-
+        label.setText("");
         if(checkNot())
             mask.changeState(i, '0');
         else if(mask.checkState(i) != '0')
@@ -162,27 +154,28 @@ public class Task6 implements Initializable {
         DNF += str;
         textarea.setText(DNF);
     }
-
     public void initNewTask(){
         label.setTextFill(Color.color(0.7, 0, 0));
         label.setText("");
         textarea.setText("");
         bin = BinNumber.randBinNumberByVar(BinNumber.randInt(5)+1);
+//        bin = new BinNumber("00");
+        mask = new Mask(bin.vars);
         label2.setText(bin.toString());
         Button[] b = {btn1, btn2, btn3, btn4, btn5};
         for(int i = 0; i < 5; i++)
             b[i].setVisible(i < bin.vars);
 
-//        curmask = 0;
-//        mask.clear();
-//        varExistence.clear();
-//        mask.add(new char[bin.vars]);
-//        varExistence.add(new int[bin.vars]);
-//        for(int i = 0; i < bin.vars; i++) {
-//            varExistence.get(curmask)[i] = 0;
-//            mask.get(curmask)[i] = 'x';
-//        }
         mask = new Mask(bin.vars);
+        for(char[] i : mask.getVarState())
+            System.out.println(i);
+    }
+    public void message(boolean bool, String s){
+        if(bool)
+            label.setTextFill(Color.color(0, 0.7, 0));
+        else
+            label.setTextFill(Color.color(0.7, 0, 0));
+        label.setText(s);
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
