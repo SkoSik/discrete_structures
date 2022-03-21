@@ -17,9 +17,11 @@ public class SKNF extends NF {
 
     public SKNF(BinNumber binNumber) {
         super(binNumber.vars);
-        Arrays.stream(binNumber.array).forEach(a -> {
-            if (a == 0) set.add(new BinNumber(a));
-        });
+        int i = 0;
+        for (int a : binNumber.array) {
+            if (a == 0) set.add(new BinNumber(i, binNumber.vars));
+            i++;
+        }
     }
 
     public String toString() {
