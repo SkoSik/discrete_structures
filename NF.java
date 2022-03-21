@@ -10,37 +10,40 @@ public abstract class NF {
     int vars;
     Set<BinNumber> set;
 
-    public NF(String[] masks,int _vars) {
+    public NF(String[] masks, int _vars) {
         set = new HashSet<>();
-        vars=_vars;
+        vars = _vars;
         for (String a : masks) {
-            buildSDNFbyMask(a.toCharArray(), 0);
+            buildNFbyMask(a.toCharArray(), 0);
         }
     }
 
-    public NF(ArrayList<char[]> masks,int _vars) {
+    public NF(ArrayList<char[]> masks, int _vars) {
         set = new HashSet<>();
-        vars=_vars;
+        vars = _vars;
         for (char[] a : masks) {
-            buildSDNFbyMask(a, 0);
+            buildNFbyMask(a, 0);
         }
     }
 
-    private void buildSDNFbyMask(char[] s, int i) {
+    private void buildNFbyMask(char[] s, int i) {
         if (i == s.length) {
-            set.add(new BinNumber(vars,String.valueOf(s)));
+            set.add(new BinNumber(vars, String.valueOf(s)));
             return;
         }
         if (s[i] == 'x') {
             for (char j = '0'; j < '2'; j++) {
                 char[] s1 = Arrays.copyOf(s, s.length);
                 s1[i] = j;
-                buildSDNFbyMask(s1, i + 1);
+                buildNFbyMask(s1, i + 1);
             }
-        } else buildSDNFbyMask(s, ++i);
+        } else buildNFbyMask(s, ++i);
     }
 
     public String toString() {
-        return String.join(" ", set.stream().map(e -> e.toString()).collect(Collectors.toList()));
+        return String.join(" ", set.stream()
+                .map(BinNumber::toNFVars)
+                .collect(Collectors.toList())
+        );
     }
 }

@@ -1,7 +1,9 @@
 package discrete_structures;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class BinNumber {
     public int vars;
@@ -67,7 +69,7 @@ public class BinNumber {
     public BinNumber(SKNF sknf, int _vars) {
         setVars(_vars);
         array = new int[pow(2, vars)];
-        Arrays.fill(array,1);
+        Arrays.fill(array, 1);
         for (BinNumber a : sknf.set) {
             array[a.parseToInt()] = 0;
         }
@@ -109,8 +111,8 @@ public class BinNumber {
         return getResidual(0, var).equals(getResidual(1, var));
     }
 
-    public static BinNumber randBinNumber(int max) {
-        return new BinNumber(randInt(max));
+    public static BinNumber randBinNumber() {
+        return new BinNumber(randInt(pow(2, App.VARS)), App.VARS);
     }
 
     public static BinNumber randBinNumberByVar(int _vars) {
@@ -147,8 +149,8 @@ public class BinNumber {
     }
 
     public void setVars(int _vars) {
-        if (_vars < 1 || _vars > 5)
-            throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать 5");
+        if (_vars < 1 || _vars > App.MAX_VARS)
+            throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать " + App.MAX_VARS);
         vars = _vars;
     }
 
@@ -202,6 +204,16 @@ public class BinNumber {
             s += Integer.toString(a);
             if (tmp % 4 == 0) s += " ";
             tmp++;
+        }
+        return s;
+    }
+
+    public String toNFVars() {
+        String s = "";
+        int i = 1;
+        for (int a : array) {
+            s += ((a == 1) ? "" : "¬") + "x"+i;
+            i++;
         }
         return s;
     }

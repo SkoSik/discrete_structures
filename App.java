@@ -18,6 +18,9 @@ public class App extends Application {
     private static MenuBar menuBar;
     private static Stage primaryStage;
 
+    public static int VARS = 0;
+    public static int MAX_VARS = 5;
+
     public static void main(String[] args) {
         Application.launch();
     }
@@ -39,7 +42,7 @@ public class App extends Application {
         primaryStage.setScene(new Scene(layout));
     }
 
-    public static void openWeb(String url){
+    public static void openWeb(String url) {
         instance.getHostServices().showDocument(url);
     }
 }
