@@ -16,7 +16,7 @@ public class SKNF extends NF {
     }
 
     public SKNF(BinNumber binNumber) {
-        super(new ArrayList<char[]>(), binNumber.vars);
+        super(binNumber.vars);
         Arrays.stream(binNumber.array).forEach(a -> {
             if (a == 0) set.add(new BinNumber(a));
         });

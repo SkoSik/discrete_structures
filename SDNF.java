@@ -15,7 +15,7 @@ public class SDNF extends NF {
     }
 
     public SDNF(BinNumber binNumber) {
-        super(new ArrayList<char[]>(), binNumber.vars);
+        super(binNumber.vars);
         Arrays.stream(binNumber.array).forEach(a -> {
             if (a == 1) set.add(new BinNumber(a));
         });

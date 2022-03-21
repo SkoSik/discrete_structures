@@ -10,6 +10,11 @@ public abstract class NF {
     int vars;
     Set<BinNumber> set;
 
+    public NF(int _vars){
+        set = new HashSet<>();
+        vars = _vars;
+    }
+
     public NF(String[] masks, int _vars) {
         set = new HashSet<>();
         vars = _vars;
