@@ -8,15 +8,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="458.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Task2">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task2">
    <children>
-      <Label fx:id="label1" layoutX="33.0" layoutY="36.0" prefHeight="18.0" prefWidth="147.0" text="Вектор функции" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="label2" layoutX="33.0" layoutY="73.0" prefHeight="61.0" prefWidth="147.0" text="Нулевая или единичная остаточная(0 или 1)" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="label3" layoutX="33.0" layoutY="173.0" prefHeight="18.0" prefWidth="147.0" text="Номер аргумента" textAlignment="CENTER" wrapText="true" />
-      <TextField fx:id="textfield1" layoutX="240.0" layoutY="33.0" />
-      <Button fx:id="button1" layoutX="164.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonClicked" text="Найти остаточную" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="label4" layoutX="113.0" layoutY="222.0" prefHeight="18.0" prefWidth="232.0" textAlignment="CENTER" />
-      <ComboBox fx:id="combobox1" layoutX="241.0" layoutY="91.0" prefWidth="150.0">
+      <Label fx:id="label1" layoutX="91.0" layoutY="126.0" prefHeight="18.0" prefWidth="147.0" text="Вектор функции" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="label2" layoutX="88.0" layoutY="158.0" prefHeight="61.0" prefWidth="147.0" text="Нулевая или единичная остаточная(0 или 1)" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="label3" layoutX="88.0" layoutY="243.0" prefHeight="18.0" prefWidth="147.0" text="Номер аргумента" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="textfield1" layoutX="342.0" layoutY="122.0" />
+      <Button fx:id="button1" layoutX="241.0" layoutY="315.0" mnemonicParsing="false" onAction="#buttonClicked" text="Найти остаточную" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="label4" layoutX="184.0" layoutY="285.0" prefHeight="18.0" prefWidth="232.0" textAlignment="CENTER" />
+      <ComboBox fx:id="combobox1" layoutX="342.0" layoutY="176.0" prefWidth="150.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="0" />
@@ -24,7 +24,7 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <ComboBox fx:id="combobox2" layoutX="241.0" layoutY="170.0" prefWidth="150.0">
+      <ComboBox fx:id="combobox2" layoutX="343.0" layoutY="239.0" prefHeight="25.0" prefWidth="181.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="1" />
@@ -35,6 +35,6 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <Label fx:id="error" layoutX="164.0" layoutY="337.0" prefHeight="18.0" prefWidth="130.0" />
+      <Label fx:id="error" layoutX="235.0" layoutY="355.0" prefHeight="18.0" prefWidth="130.0" />
    </children>
 </Pane>
