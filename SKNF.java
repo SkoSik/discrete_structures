@@ -16,8 +16,6 @@ public class SKNF extends NF {
         super(boolFunction.vars);
         int i = 0;
         for (int a : boolFunction.array) {
-//            System.out.print(i + ":" +a);
-//            System.out.println();
             if (a == 0) set.add(new BinNumber(i));
             i++;
         }

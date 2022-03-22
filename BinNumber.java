@@ -2,7 +2,6 @@ package discrete_structures;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -43,16 +42,43 @@ public class BinNumber {
 
     public static String parseIntToBin(int number) {
         String array = "";
-        if(number == 0)
+
+        if (number == 0)
             return "0";
+
         while (number > 0) {
             array += number % 2;
             number /= 2;
         }
-        String reverseArr = "";
-        for(int i = array.length()-1; i >= 0; i--)
-            reverseArr += array.charAt(i);
-        return reverseArr;
+
+        return array;
+    }
+
+    public int getValue(int id) {
+        if (id >= array.length)
+            throw new IllegalArgumentException("Для данного набора не существует значения в функции");
+        return array[id];
+    }
+
+    public int getValue(String vector) {
+        BinNumber binNumber = new BinNumber(vector);
+        return getValue(binNumber.parseToInt());
+    }
+
+    public int getWeight() {
+        return Arrays.stream(array).sum();
+    }
+
+    public BinNumber[] getSets() {
+        BinNumber[] binNumbers = new BinNumber[length];
+        for (int i = 0; i < length; i++) {
+            binNumbers[i] = new BinNumber(i);
+        }
+        return binNumbers;
+    }
+
+    public static int sum2(int a, int b) {
+        return (a + b == 2) ? 0 : a + b;
     }
 
     public void setArray(String _array) {

@@ -16,7 +16,7 @@ public class SDNF extends NF {
         super(boolFunction.vars);
         int i = 0;
         for (int a : boolFunction.array) {
-            if (a == 1) set.add(new BoolFunction(i, boolFunction.vars));
+            if (a == 1) set.add(new BinNumber(i));
             i++;
         }
         setDelimiter();

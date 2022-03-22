@@ -12,7 +12,7 @@ public abstract class NF {
     Set<BinNumber> set = new HashSet<>();
     public static String delimiter;
 
-    public NF(int _vars){
+    public NF(int _vars) {
         vars = _vars;
         setDelimiter();
     }
@@ -35,7 +35,7 @@ public abstract class NF {
 
     private void buildNFbyMask(char[] s, int i) {
         if (i == s.length) {
-            set.add(new BoolFunction(String.valueOf(s),vars));
+            set.add(new BoolFunction(String.valueOf(s), vars));
             return;
         }
         if (s[i] == 'x') {

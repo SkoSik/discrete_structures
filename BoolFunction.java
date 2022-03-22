@@ -7,17 +7,17 @@ public class BoolFunction extends BinNumber {
 
     public BoolFunction(int[] _array) {
         super(_array);
-        setVars(_array.length);
+        setVars(log2(_array.length));
     }
 
     public BoolFunction(String _array) {
         super(_array);
-        setVars(_array.length());
+        setVars(log2(_array.length()));
     }
 
     public BoolFunction(int number) {
         super(number);
-        setVars(number);
+        setVars(log2(number));
     }
 
     public BoolFunction(int number, int _vars) {
@@ -88,17 +88,6 @@ public class BoolFunction extends BinNumber {
         return array;
     }
 
-    public int getValue(int id) {
-        if (id >= array.length)
-            throw new IllegalArgumentException("Для данного набора не существует значения в функции");
-        return array[id];
-    }
-
-    public int getValue(String vector) {
-        BinNumber binNumber = new BinNumber(vector);
-        return getValue(binNumber.parseToInt());
-    }
-
     public BoolFunction getResidual(int ost, int var) {
         if (var > vars) throw new IllegalArgumentException("Данной переменной нет в функции");
         int[] _array = new int[array.length / 2];
@@ -121,6 +110,44 @@ public class BoolFunction extends BinNumber {
 
     public boolean isSaveOne() {
         return (array[length - 1] == 1);
+    }
+
+    public boolean isSelfDuality() {
+        for (int i = 0; i < length; i++) {
+            if (array[i] == array[length - 1 - i]) return false;
+        }
+        return true;
+    }
+
+    public boolean isMonotony() {
+        BinNumber[] binNumbers = getSets();
+        for (int i = 0; i < length; i++) {
+            int wi = binNumbers[i].getWeight();
+            for (int j = i + 1; j < length; j++) {
+                int wj = binNumbers[j].getWeight();
+                if ((wi - wj == 1 && getValue(i) < getValue(j)) || (wj - wi == 1 && getValue(j) < getValue(i)))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isLinear() {
+        int[][] polynom = new int[length][length];
+        for (int i = 0; i < length; i++) {
+            polynom[i][0] = array[i];
+        }
+
+        for (int i = 1; i < length; i++) {
+            for (int j = 0; j < length - i; j++) {
+                polynom[j][i] = sum2(polynom[j][i - 1], polynom[j + 1][i - 1]);
+            }
+        }
+
+        for (int i = 0; i < length; i++) {
+            if (polynom[length - 1 - i][i] == 1 && (new BinNumber(i).getWeight() > 1)) return false;
+        }
+        return true;
     }
 
     public void setVars(int _vars) {
