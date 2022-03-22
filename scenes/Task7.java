@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import discrete_structures.*;
 import discrete_structures.SKNF;
@@ -17,7 +18,7 @@ import javafx.scene.paint.Color;
 
 public class Task7 implements Initializable {
 
-    BinNumber bin;
+    BoolFunction bin;
     Mask mask;
     boolean brackets;
 
@@ -92,7 +93,7 @@ public class Task7 implements Initializable {
             if (KNF.length() != 0 && KNF.charAt(KNF.length()-1) != ')')
                 throw new Exception("закончите выражение");
             SKNF solution = new SKNF(mask.getVarState(), bin.vars);
-            BinNumber b = new BinNumber(solution, bin.vars);
+            BoolFunction b = new BoolFunction(solution, bin.vars);
             if(b.equals(bin)) {
                 message(true, "правильно");
             }
@@ -259,7 +260,7 @@ public class Task7 implements Initializable {
         label.setText("");
         textarea.setText("");
 //        bin = BinNumber.randBinNumberByVar(BinNumber.randInt(5)+1);
-        bin = new BinNumber("1111");
+        bin = new BoolFunction("1111");
         label2.setText(bin.toString());
 
         Button[] b = {btn1, btn2, btn3, btn4, btn5};

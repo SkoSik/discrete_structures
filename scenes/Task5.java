@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import discrete_structures.BoolFunction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -51,10 +52,10 @@ public class Task5 implements Initializable {
         button1.setDisable(false);
     }
 
-    BinNumber bn;
+    BoolFunction bn;
 
     public void new_vector() {
-        bn = BinNumber.randBinNumberByVar(BinNumber.randInt(4) + 1);
+        bn = BoolFunction.randBoolFunction(BinNumber.randInt(4) + 1);
         label2.setText(bn.toString());
     }
 

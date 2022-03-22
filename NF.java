@@ -33,7 +33,7 @@ public abstract class NF {
 
     private void buildNFbyMask(char[] s, int i) {
         if (i == s.length) {
-            set.add(new BinNumber(vars, String.valueOf(s)));
+            set.add(new BoolFunction(String.valueOf(s),vars));
             return;
         }
         if (s[i] == 'x') {

@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import discrete_structures.BoolFunction;
 import discrete_structures.SDNF;
 import discrete_structures.SKNF;
 import javafx.fxml.FXML;
@@ -14,7 +15,7 @@ import discrete_structures.BinNumber;
 import javafx.scene.control.TextField;
 
 public class Task9 implements Initializable {
-    BinNumber bin;
+    BoolFunction bin;
 
     @FXML
     Label label;
@@ -24,7 +25,7 @@ public class Task9 implements Initializable {
 
     @FXML
     public void btnSKNFClicked(){
-        bin = new BinNumber(textfield.getText());
+        bin = new BoolFunction(textfield.getText());
         System.out.println(bin.vars);
         SDNF sdnf = new SDNF(bin);
 //        for (BinNumber i : sdnf.set) {

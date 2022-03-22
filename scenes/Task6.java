@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import discrete_structures.BoolFunction;
 import discrete_structures.Mask;
 import discrete_structures.SDNF;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import javafx.scene.paint.Color;
 
 public class Task6 implements Initializable {
 
-    BinNumber bin;
+    BoolFunction bin;
     Mask mask;
 
     @FXML
@@ -94,7 +95,7 @@ public class Task6 implements Initializable {
             if (DNF.length() != 0 && (DNF.charAt(DNF.length() - 1) == 'V' || DNF.charAt(DNF.length() - 1) == '¬'))
                 throw new Exception("закончите выражение");
             SDNF solution = new SDNF(mask.getVarState(), bin.vars);
-            BinNumber b = new BinNumber(solution, bin.vars);
+            BoolFunction b = new BoolFunction(solution, bin.vars);
             if((!DNF.isEmpty() && b.equals(bin)) || (DNF.isEmpty() && bin.parseToInt() == 0)) {
                 message(true, "Правильно");
             }
@@ -158,7 +159,7 @@ public class Task6 implements Initializable {
         label.setTextFill(Color.color(0.7, 0, 0));
         label.setText("");
         textarea.setText("");
-        bin = BinNumber.randBinNumberByVar(BinNumber.randInt(5)+1);
+        bin = BoolFunction.randBoolFunction(BinNumber.randInt(5)+1);
 //        bin = new BinNumber("00");
         mask = new Mask(bin.vars);
         label2.setText(bin.toString());

@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import discrete_structures.BoolFunction;
 import discrete_structures.SDNF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,7 +33,7 @@ public class Task4 implements Initializable {
         comboBox1.getItems().setAll(list);
         comboBox1.setValue(list.get(0));
 
-        binNumber = BinNumber.randBinNumberByVar(2);
+        binNumber = BoolFunction.randBoolFunction(2);
         label2.setText(binNumber.toOutput());
 
         label3.setText("");
@@ -56,7 +57,7 @@ public class Task4 implements Initializable {
         String[] temp = new String[]{"Ноль", "Конъюкция", "Отрицание импликации", "X", "Отрицание обратной импликации", "Y", "Сложение по модулю 2", "Диъюнкция",
                 "Стрелка Пирса", "Эквивалентность", "Отрицание Y", "Обратная импликация", "Отрицание X", "Импликация", "Штрих Шеффера", "Единица"};
         for (int i = 0; i < 16; i++) {
-            vectors.put(temp[i], new BinNumber(i, 2));
+            vectors.put(temp[i], new BoolFunction(i, 2));
         }
         buttonReload();
     }

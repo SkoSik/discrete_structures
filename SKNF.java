@@ -1,8 +1,6 @@
 package discrete_structures;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class SKNF extends NF {
@@ -15,11 +13,11 @@ public class SKNF extends NF {
         super(masks, _vars);
     }
 
-    public SKNF(BinNumber binNumber) {
-        super(binNumber.vars);
+    public SKNF(BoolFunction boolFunction) {
+        super(boolFunction.vars);
         int i = 0;
-        for (int a : binNumber.array) {
-            if (a == 0) set.add(new BinNumber(i, binNumber.vars));
+        for (int a : boolFunction.array) {
+            if (a == 0) set.add(new BoolFunction(i, boolFunction.vars));
             i++;
         }
     }

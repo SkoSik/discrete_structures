@@ -1,5 +1,6 @@
 package discrete_structures.scenes;
 
+import discrete_structures.BoolFunction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -32,10 +33,10 @@ public class Task3 implements Initializable {
     @FXML
     public void button1Clicked() {
         try {
-            BinNumber nullost = new BinNumber(textfield1.getText());
-            BinNumber edost = new BinNumber(textfield2.getText());
+            BoolFunction nullost = new BoolFunction(textfield1.getText());
+            BoolFunction edost = new BoolFunction(textfield2.getText());
             int arg = Integer.parseInt((String) comboBox1.getValue());
-            BinNumber vecFunc = new BinNumber(nullost, edost, arg);
+            BoolFunction vecFunc = new BoolFunction(nullost, edost, arg);
             anslabel.setText(vecFunc.toString());
             exception.setText("");
         } catch (Exception e) {

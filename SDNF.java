@@ -1,7 +1,6 @@
 package discrete_structures;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class SDNF extends NF {
@@ -14,11 +13,11 @@ public class SDNF extends NF {
         super(masks, _vars);
     }
 
-    public SDNF(BinNumber binNumber) {
-        super(binNumber.vars);
+    public SDNF(BoolFunction boolFunction) {
+        super(boolFunction.vars);
         int i = 0;
-        for (int a : binNumber.array) {
-            if (a == 1) set.add(new BinNumber(i, binNumber.vars));
+        for (int a : boolFunction.array) {
+            if (a == 1) set.add(new BoolFunction(i, boolFunction.vars));
             i++;
         }
     }

@@ -1,5 +1,7 @@
 package discrete_structures.scenes;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import discrete_structures.BoolFunction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -20,7 +22,7 @@ public class Task1 implements Initializable {
     @FXML
     public void buttonClicked() {
         int number = Integer.parseInt((String) comboBox1.getValue());
-        label1.setText(BinNumber.randBinNumberByVar(number).toOutput());
+        label1.setText(BoolFunction.randBoolFunction(number).toOutput());
     }
 
     @Override
