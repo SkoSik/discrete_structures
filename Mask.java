@@ -6,15 +6,15 @@ public class Mask {
     ArrayList<char[]> varState = new ArrayList<>();
     ArrayList<int[]> varExistence = new ArrayList<>();
     int curmask = 0, vars = 0;
-    public Mask(int _vars){
-        vars = _vars;
-        curmask = 0;
-        initNewMask();
-    }
     public Mask(){
         vars = curmask = 0;
         varExistence = new ArrayList<>();
         varState = new ArrayList<>();
+    }
+    public Mask(int _vars){
+        vars = _vars;
+        curmask = 0;
+        initNewMask();
     }
     public void newMask(){
         curmask++;
