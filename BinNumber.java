@@ -2,6 +2,7 @@ package discrete_structures;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -47,8 +48,10 @@ public class BinNumber {
             array += number % 2;
             number /= 2;
         }
-
-        return array;
+        String reverseArr = "";
+        for(int i = array.length()-1; i >= 0; i--)
+            reverseArr += array.charAt(i);
+        return reverseArr;
     }
 
     public void setArray(String _array) {
