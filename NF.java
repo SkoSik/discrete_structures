@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public abstract class NF {
     int vars;
+    public
     Set<BinNumber> set = new HashSet<>();
     public static String delimiter;
 

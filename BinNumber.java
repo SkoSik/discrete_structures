@@ -43,7 +43,8 @@ public class BinNumber {
 
     public static String parseIntToBin(int number) {
         String array = "";
-
+        if(number == 0)
+            return "0";
         while (number > 0) {
             array += number % 2;
             number /= 2;
