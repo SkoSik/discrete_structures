@@ -1,7 +1,6 @@
 package discrete_structures;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class SDNF extends NF {
 
@@ -20,12 +19,10 @@ public class SDNF extends NF {
             if (a == 1) set.add(new BoolFunction(i, boolFunction.vars));
             i++;
         }
+        setDelimiter();
     }
 
-    public String toString() {
-        return String.join(" V ", set.stream()
-                .map(BinNumber::toNFVars)
-                .collect(Collectors.toList())
-        );
+    public void setDelimiter() {
+        delimiter = " V ";
     }
 }

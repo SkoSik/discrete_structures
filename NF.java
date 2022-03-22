@@ -8,27 +8,28 @@ import java.util.stream.Collectors;
 
 public abstract class NF {
     int vars;
-    Set<BinNumber> set;
+    Set<BinNumber> set = new HashSet<>();
+    public static String delimiter;
 
     public NF(int _vars){
-        set = new HashSet<>();
         vars = _vars;
+        setDelimiter();
     }
 
     public NF(String[] masks, int _vars) {
-        set = new HashSet<>();
         vars = _vars;
         for (String a : masks) {
             buildNFbyMask(a.toCharArray(), 0);
         }
+        setDelimiter();
     }
 
     public NF(ArrayList<char[]> masks, int _vars) {
-        set = new HashSet<>();
         vars = _vars;
         for (char[] a : masks) {
             buildNFbyMask(a, 0);
         }
+        setDelimiter();
     }
 
     private void buildNFbyMask(char[] s, int i) {
@@ -45,8 +46,10 @@ public abstract class NF {
         } else buildNFbyMask(s, ++i);
     }
 
+    public abstract void setDelimiter();
+
     public String toString() {
-        return String.join(" ", set.stream()
+        return String.join(delimiter, set.stream()
                 .map(BinNumber::toNFVars)
                 .collect(Collectors.toList())
         );
