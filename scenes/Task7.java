@@ -259,8 +259,7 @@ public class Task7 implements Initializable {
         label.setTextFill(Color.color(0.7, 0, 0));
         label.setText("");
         textarea.setText("");
-//        bin = BinNumber.randBinNumberByVar(BinNumber.randInt(5)+1);
-        bin = new BoolFunction("1111");
+        bin = BoolFunction.randBoolFunction(BinNumber.randInt(5)+1);
         label2.setText(bin.toString());
 
         Button[] b = {btn1, btn2, btn3, btn4, btn5};
@@ -268,7 +267,6 @@ public class Task7 implements Initializable {
             b[i].setVisible(i < bin.vars);
     }
 
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
         initNewTask();
     }

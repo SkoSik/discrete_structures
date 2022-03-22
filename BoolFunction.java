@@ -7,14 +7,17 @@ public class BoolFunction extends BinNumber {
 
     public BoolFunction(int[] _array) {
         super(_array);
+        setVars(_array.length);
     }
 
     public BoolFunction(String _array) {
         super(_array);
+        setVars(_array.length());
     }
 
     public BoolFunction(int number) {
         super(number);
+        setVars(number);
     }
 
     public BoolFunction(int number, int _vars) {
@@ -113,6 +116,8 @@ public class BoolFunction extends BinNumber {
     }
 
     public void setVars(int _vars) {
+        if ((array.length & (array.length - 1)) != 0)
+            throw new IllegalArgumentException("Некорректная длина булевой функции");
         if (_vars < 1 || _vars > App.MAX_VARS)
             throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать " + App.MAX_VARS);
         vars = _vars;

@@ -12,6 +12,11 @@ import java.util.ResourceBundle;
 public class Menu implements Initializable {
 
     @FXML
+    public void changeSceneSettings(ActionEvent e) throws IOException {
+        App.changeScene("settings");
+    }
+
+    @FXML
     public void changeSceneInfo(ActionEvent e) throws IOException {
         App.changeScene("main");
     }

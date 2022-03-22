@@ -29,6 +29,7 @@
       <Menu mnemonicParsing="false" text="Инфо">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#changeSceneInfo" text="О программе" />
+            <MenuItem mnemonicParsing="false" onAction="#changeSceneSettings" text="Настройки" />
          </items></Menu>
    </menus>
 </MenuBar>

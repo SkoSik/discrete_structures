@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task7">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Task7">
    <Button fx:id="megabtn" layoutX="218.0" layoutY="340.0" mnemonicParsing="false" onAction="#megabtnClicked" prefHeight="43.0" prefWidth="165.0" text="Кнопка" />
    <Button fx:id="btn1" layoutX="33.0" layoutY="278.0" mnemonicParsing="false" onAction="#btn1Clicked" prefHeight="52.0" prefWidth="52.0" text="X1" />
    <Button fx:id="btn2" layoutX="95.0" layoutY="278.0" mnemonicParsing="false" onAction="#btn2Clicked" prefHeight="52.0" prefWidth="52.0" text="X2" />
@@ -18,7 +18,7 @@
    <Button fx:id="btn4" layoutX="210.0" layoutY="278.0" mnemonicParsing="false" onAction="#btn4Clicked" prefHeight="52.0" prefWidth="52.0" text="X4" />
    <Button fx:id="btn5" layoutX="268.0" layoutY="278.0" mnemonicParsing="false" onAction="#btn5Clicked" prefHeight="52.0" prefWidth="52.0" text="X5" />
    <TextArea fx:id="textarea" layoutX="5.0" layoutY="109.0" prefHeight="52.0" prefWidth="590.0" />
-   <Label layoutX="153.0" layoutY="29.0" text="Введите ДНФ функции">
+   <Label layoutX="153.0" layoutY="29.0" text="Введите КНФ функции">
       <font>
          <Font size="30.0" />
       </font>
