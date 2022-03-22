@@ -41,20 +41,13 @@ public class BinNumber {
     }
 
     public static String parseIntToBin(int number) {
-        int tmp;
-        try {
-            tmp = log2(number) + 1;
-        } catch (ArithmeticException e) {
-            tmp = 0;
-        }
-        int new_size = 1;
-        while (new_size < tmp) new_size *= 2;
         String array = "";
 
-        for (int i = new_size - 1; i >= 0; i--) {
+        while (number > 0) {
             array += number % 2;
             number /= 2;
         }
+
         return array;
     }
 

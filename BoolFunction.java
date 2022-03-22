@@ -115,6 +115,14 @@ public class BoolFunction extends BinNumber {
         return getResidual(0, var).equals(getResidual(1, var));
     }
 
+    public boolean isSaveZero() {
+        return (array[0] == 0);
+    }
+
+    public boolean isSaveOne() {
+        return (array[length - 1] == 1);
+    }
+
     public void setVars(int _vars) {
         if ((array.length & (array.length - 1)) != 0)
             throw new IllegalArgumentException("Некорректная длина булевой функции");
