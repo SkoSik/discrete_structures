@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task8">
+   <children>
+      <Label fx:id="label" alignment="BASELINE_CENTER" layoutX="85.0" layoutY="137.0" prefHeight="30.0" prefWidth="449.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textfield" layoutX="68.0" layoutY="188.0" prefHeight="25.0" prefWidth="460.0" />
+      <Button fx:id="btnSDNF" layoutX="259.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnSDNFClicked" prefHeight="49.0" prefWidth="101.0" text="СКНФ" />
+      <Label layoutX="183.0" layoutY="23.0" prefHeight="30.0" prefWidth="252.0" text="СДНФ по вектору-функции">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

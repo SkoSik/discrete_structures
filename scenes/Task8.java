@@ -1,6 +1,7 @@
 package discrete_structures.scenes;
 
 import discrete_structures.BoolFunction;
+import discrete_structures.SDNF;
 import discrete_structures.SKNF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +12,7 @@ import javafx.scene.paint.Color;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Task9 implements Initializable {
+public class Task8 implements Initializable {
     BoolFunction bool;
 
     @FXML
@@ -21,12 +22,12 @@ public class Task9 implements Initializable {
     TextField textfield;
 
     @FXML
-    public void btnSKNFClicked(){
+    public void btnSDNFClicked(){
         try {
             label.setTextFill(Color.color(0, 0, 0));
             bool = new BoolFunction(textfield.getText());
-            SKNF sknf = new SKNF(bool);
-            label.setText(sknf.toString());
+            SDNF sdnf = new SDNF(bool);
+            label.setText(sdnf.toString());
         }
         catch (IllegalArgumentException e){
             label.setTextFill(Color.color(0.7, 0, 0));
