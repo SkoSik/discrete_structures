@@ -88,6 +88,26 @@ public class BoolFunction extends BinNumber {
         return array;
     }
 
+    //для красоты переопределил из BinNum, использоваться не будет
+    public static String parseIntToBinString(int number, int vars){
+        int new_size = pow(2, vars);
+        String array = "";
+        int sz = 0;
+        while (number > 0) {
+            array += number % 2;
+            number /= 2;
+            sz++;
+        }
+        while(array.length() < new_size)
+            array += '0';
+
+        String reverse = "";
+        for(int i = array.length()-1; i >= 0; i--)
+            reverse += array.charAt(i);
+
+        return reverse;
+    }
+
     public BoolFunction getResidual(int ost, int var) {
         if (var > vars) throw new IllegalArgumentException("Данной переменной нет в функции");
         int[] _array = new int[array.length / 2];

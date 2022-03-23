@@ -1,6 +1,7 @@
 package discrete_structures;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class dnfRealization {
@@ -63,10 +64,17 @@ public class dnfRealization {
 //        func(sb, ans);
 //        for(String i : ans)
 //            System.out.println(i);
-        BoolFunction bo = new BoolFunction("11111111");
-        SDNF sk = new SDNF(bo);
-        System.out.println(sk.set.size());
-        for(BinNumber i : sk.set)
-            System.out.print(i.toString() + " ");
+
+
+        System.out.println(BoolFunction.parseIntToBinString(3, 3));
+//        String s = "1111";
+//        int sz = BinNumber.log2(s.length());
+//        ArrayList<String> nabori = new ArrayList<>();
+//        for(int i = 0; i < s.length(); i++){
+//            if(s.charAt(i) == '1')
+//                nabori.add(BinNumber.parseIntToBinString(i, sz));
+//        }
+//        for (String i : nabori)
+//            System.out.println(i);
     }
 }

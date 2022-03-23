@@ -59,6 +59,24 @@ public class BinNumber {
 
         return reverse;
     }
+    //Для 12, так что руки прочь
+    public static String parseIntToBinString(int number, int len){
+        String array = "";
+        int sz = 0;
+        while (number > 0) {
+            array += number % 2;
+            number /= 2;
+            sz++;
+        }
+        while(array.length() < len)
+            array += '0';
+
+        String reverse = "";
+        for(int i = array.length()-1; i >= 0; i--)
+            reverse += array.charAt(i);
+
+        return reverse;
+    }
 
     public int getValue(int id) {
         if (id >= array.length)
