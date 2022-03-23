@@ -54,14 +54,19 @@ public class dnfRealization {
         }
     }
     public static void main(String[] args) {
-        ArrayList<String> sb = new ArrayList<>();
-        sb.add("001");
-        sb.add("011");
-        sb.add("100");
-        sb.add("111");
-        ArrayList<String> ans = new ArrayList<>();
-        func(sb, ans);
-        for(String i : ans)
-            System.out.println(i);
+//        ArrayList<String> sb = new ArrayList<>();
+//        sb.add("001");
+//        sb.add("011");
+//        sb.add("100");
+//        sb.add("111");
+//        ArrayList<String> ans = new ArrayList<>();
+//        func(sb, ans);
+//        for(String i : ans)
+//            System.out.println(i);
+        BoolFunction bo = new BoolFunction("11111111");
+        SDNF sk = new SDNF(bo);
+        System.out.println(sk.set.size());
+        for(BinNumber i : sk.set)
+            System.out.print(i.toString() + " ");
     }
 }

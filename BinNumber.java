@@ -26,7 +26,10 @@ public class BinNumber {
         setArray(parseIntToBin(number));
         length = array.length;
     }
-
+    public BinNumber(int number, int len){
+        setArray(parseIntToBin(number), len);
+        length = len;
+    }
     public int parseToInt() {
         int b = pow(2, array.length - 1), sum = 0;
         for (int a : array) {
@@ -50,8 +53,11 @@ public class BinNumber {
             array += number % 2;
             number /= 2;
         }
+        String reverse = "";
+        for(int i = array.length()-1; i >= 0; i--)
+            reverse += array.charAt(i);
 
-        return array;
+        return reverse;
     }
 
     public int getValue(int id) {
@@ -97,7 +103,15 @@ public class BinNumber {
         }
         array = _array;
     }
-
+    public void setArray(String _array, int len) {
+        array = new int[len];
+        if (array.length == 0) throw new IllegalArgumentException("Данная строка не является булевой функцией");
+        for (int i = len-_array.length(), j = 0; i < len; i++, j++) {
+            if (_array.charAt(j) != '0' && _array.charAt(j) != '1')
+                throw new IllegalArgumentException("Данная строка не является булевой функцией");
+            array[i] = _array.charAt(j) - '0';
+        }
+    }
     public static int randInt(int max) {
         return (int) Math.floor(Math.random() * max);
     }
