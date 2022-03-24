@@ -56,7 +56,9 @@ public class BoolFunction extends BinNumber {
     }
 
     public BoolFunction(SDNF sdnf, int _vars) {
-        setVars(_vars);
+        if (_vars < 1 || _vars > App.MAX_VARS)
+            throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать " + App.MAX_VARS);
+        vars = _vars;
         array = new int[pow(2, vars)];
         for (BinNumber a : sdnf.set) {
             array[a.parseToInt()] = 1;
@@ -65,7 +67,9 @@ public class BoolFunction extends BinNumber {
     }
 
     public BoolFunction(SKNF sknf, int _vars) {
-        setVars(_vars);
+        if (_vars < 1 || _vars > App.MAX_VARS)
+            throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать " + App.MAX_VARS);
+        vars = _vars;
         array = new int[pow(2, vars)];
         Arrays.fill(array, 1);
         for (BinNumber a : sknf.set) {
@@ -172,7 +176,7 @@ public class BoolFunction extends BinNumber {
     }
 
     public void setVars(int _vars) {
-        if ((array.length & (array.length - 1)) != 0 || array.length == 1)
+        if ((array.length & (array.length - 1)) != 0)
             throw new IllegalArgumentException("Некорректная длина булевой функции");
         if (_vars < 1 || _vars > App.MAX_VARS)
             throw new IllegalArgumentException("Количество переменных должно быть больше нуля и не превышать " + App.MAX_VARS);

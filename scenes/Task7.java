@@ -85,14 +85,21 @@ public class Task7 implements Initializable {
     public void megabtnClicked() {
         label.setText("");
         try {
-            if (isEdVec()) {
+            if (KNF.isEmpty() && isEdVec()) {
                 message(true, "правильно");
+                return;
+            }
+            else if(KNF.isEmpty() && !isEdVec()){
+                message(false, "неправильно");
                 return;
             }
             if (KNF.length() != 0 && KNF.charAt(KNF.length() - 1) != ')')
                 throw new Exception("закончите выражение");
             SKNF solution = new SKNF(mask.getVarState(), bin.vars);
             BoolFunction b = new BoolFunction(solution, bin.vars);
+            for(int i : b.array)
+                System.out.print(i + " ");
+
             if (b.equals(bin)) {
                 message(true, "правильно");
             } else {
@@ -232,8 +239,12 @@ public class Task7 implements Initializable {
     }
 
     public boolean isEdVec() {
-        for (int i = 0; i < KNF.length(); i++)
-            if (KNF.charAt(i) != '1')
+//        for (int i = 0; i < KNF.length(); i++)
+//            if (KNF.charAt(i) != '1')
+//                return false;
+//        return true;
+        for(int i = 0; i < bin.array.length; i++)
+            if(bin.array[i] != 1)
                 return false;
         return true;
     }
@@ -251,7 +262,8 @@ public class Task7 implements Initializable {
         label.setTextFill(Color.color(0.7, 0, 0));
         label.setText("");
         textarea.setText("");
-        bin = BoolFunction.randBoolFunction(BinNumber.randInt(4) + 1);
+        bin = BoolFunction.randBoolFunction(BinNumber.randInt(5) + 1);
+//        bin = new BoolFunction("10");
         label2.setText(bin.toString());
 
         Button[] b = {btn1, btn2, btn3, btn4, btn5};
@@ -260,6 +272,7 @@ public class Task7 implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
+        textarea.setEditable(false);
         initNewTask();
     }
 }

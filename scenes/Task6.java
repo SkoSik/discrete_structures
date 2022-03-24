@@ -160,7 +160,7 @@ public class Task6 implements Initializable {
         label.setText("");
         textarea.setText("");
         bin = BoolFunction.randBoolFunction(BinNumber.randInt(5)+1);
-//        bin = new BinNumber("00");
+//        bin = new BoolFunction("11");
         mask = new Mask(bin.vars);
         label2.setText(bin.toString());
         Button[] b = {btn1, btn2, btn3, btn4, btn5};
@@ -180,6 +180,7 @@ public class Task6 implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        textarea.setEditable(false);
         initNewTask();
     }
 }
