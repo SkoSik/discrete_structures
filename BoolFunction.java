@@ -39,19 +39,20 @@ public class BoolFunction extends BinNumber {
         int S0 = ost0.array.length;
         int S1 = ost1.array.length;
 
+
         if (S0 != S1) throw new IllegalArgumentException("Остаточные не соотвествуют одной функции");
         if ((S0 & (S0 - 1)) != 0 && (S1 & (S1 - 1)) != 0)
             throw new IllegalArgumentException("Заданных остаточных не существует");
         if (ost0.vars + 1 < arg)
             throw new IllegalArgumentException("У функции с такими остаточными нет заданной переменной");
         array = new int[ost0.array.length * 2];
-        int period = 1 << arg;
+        vars = ost0.vars + 1;
+        int period = 1 << (vars - arg + 1);
         for (int i = 0, x = 0, y = 0; i < array.length; i++) {
             int ost = i % period / (period / 2);
             if (ost == 0) array[i] = ost0.array[x++];
             else array[i] = ost1.array[y++];
         }
-        vars = ost0.vars + 1;
     }
 
     public BoolFunction(SDNF sdnf, int _vars) {
