@@ -63,7 +63,6 @@ public class dnfRealization {
         }
         public Set<String> takeOutCores(int[] xBlock, int[] yBlock){
             Set<String> dnf = new HashSet<>();
-            System.out.println(high + " " + width);
             for(int i = 0; i < width; i++) {
                 if(highPrecalc[i] == 1){
                     int ind = 0;
@@ -91,19 +90,35 @@ public class dnfRealization {
             int l = 0;
             ArrayList<Set<Integer>> tmp = new ArrayList<>();
             matrix matr2 = new matrix(matr.high-i-1, matr.width);
+//            Set<Integer> set1 = new HashSet<>(ar.get(i));
+//            if(isFull(matr2.table[l]) && bestsz > set1.size()){
+//                System.out.println(1);
+//                bestset = set1;
+//                bestsz = set1.size();
+//            }
             for (int j = i + 1; j < matr.high; j++) {
                 Set<Integer> set = new HashSet<>();
-                set.addAll(ar.get(i));
-                set.addAll(ar.get(j));
-                tmp.add(set);
                 matr2.pokrterm.add(matr.pokrterm.get(j));
+                boolean b1 = false, b2 =false;
                 for (int k = 0; k < matr.width; k++) {
-                    matr2.table[l][k] = Math.max(matr.table[i][k], matr.table[j][k]);
+//                    matr2.table[l][k] = Math.max(matr.table[i][k], matr.table[j][k]);
+                    if(matr.table[i][k] >= matr.table[j][k]){
+                        matr2.table[l][k] = matr.table[i][k];
+                        b1 = true;
+                    }
+                    else{
+                        matr2.table[l][k] = matr.table[j][k];
+                        b2 = true;
+                    }
                 }
+                if(b1)
+                    set.addAll(ar.get(i));
+                if(b2)
+                    set.addAll(ar.get(j));
+                tmp.add(set);
                 if(isFull(matr2.table[l]) && bestsz > set.size()) {
                     bestset = set;
                     bestsz = set.size();
-                    System.out.println(set);
                 }
                 l++;
             }
@@ -144,13 +159,12 @@ public class dnfRealization {
 
         }
         arr = (ArrayList<String>) arr.stream().distinct().collect(Collectors.toList());
+
         if(inp.size() > 0)
             func(arr, ans, ++cnt);
-
         if(ans.size() == 0)
             ans.addAll(arr);
 
-        ArrayList<String> left = new ArrayList<>();
         for (String higher : inp)
         {
             boolean addElem = true;
@@ -180,9 +194,6 @@ public class dnfRealization {
 
         matrix matr = new matrix(ans, nabori);
         dnf = matr.takeOutCores(xBlock, yBlock);
-        System.out.println(dnf);
-        System.out.println(Arrays.toString(xBlock));
-        System.out.println(Arrays.toString(yBlock));
 
         ArrayList<String> minusCores = new ArrayList<>(), minusSDNFS = new ArrayList<>();
         for(int i = 0; i < xBlock.length; i++)
@@ -193,14 +204,15 @@ public class dnfRealization {
                 minusSDNFS.add(matr.sdnfs.get(i));
 
         matrix matr2 = new matrix(minusCores, minusSDNFS);
-        for(Set<String> i : matr2.pokrterm)
-            System.out.println(i.toString());
+
         ArrayList<Set<Integer>> inds = new ArrayList<>();
+
         for(int i = 0; i < matr2.terms.size(); i++) {
             Set<Integer> s = new HashSet<>();
             s.add(i);
             inds.add(s);
         }
+//        System.out.println(dnf);
         pokr(matr2, inds, answer);
         for(int i : bestset){
             dnf.add(matr2.terms.get(i));
@@ -219,8 +231,9 @@ public class dnfRealization {
     }
 
     public static void main(String[] args) {
-        BoolFunction bool = new BoolFunction("0001110101011100");
+//        BoolFunction bool = new BoolFunction("0001110101011100");
 //        BoolFunction bool = new BoolFunction("1110001000000011");
+        BoolFunction bool = new BoolFunction("1100110000111110");
 
         ArrayList<String> nabori = new ArrayList<>(), ans = new ArrayList<>(), nabori2, ans2 = new ArrayList<>();
         int eds = 0;
@@ -233,11 +246,6 @@ public class dnfRealization {
         Set<Integer> answer = new HashSet<>();
         int cnt = 0, cnt2 = 0;
         func(nabori, ans, cnt);
-
-//        for(String i : ans)
-//            System.out.println(i);
         func2(ans,nabori, answer);
-//        System.out.println(bestset.toString());
-//        System.out.println(func2(ans, nabori).toString());
     }
 }
