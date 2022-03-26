@@ -6,30 +6,45 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Task4">
-   <children>
-      <Label fx:id="label2" alignment="CENTER" layoutX="122.0" layoutY="166.0" prefHeight="26.0" prefWidth="357.0" textAlignment="CENTER">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <Button fx:id="button1" layoutX="181.0" layoutY="292.0" mnemonicParsing="false" onAction="#buttonCheck" prefHeight="41.0" prefWidth="179.0" text="Проверить">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
-      <Label fx:id="label1" layoutX="150.0" layoutY="100.0" prefHeight="55.0" prefWidth="300.0" text="Выбрать имя функции по заданному вектору" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <ComboBox fx:id="comboBox1" layoutX="198.0" layoutY="200.0" prefHeight="25.0" prefWidth="205.0" />
-      <Label fx:id="label3" alignment="CENTER" layoutX="122.0" layoutY="250.0" prefHeight="21.0" prefWidth="357.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Button alignment="CENTER" layoutX="379.0" layoutY="292.0" mnemonicParsing="false" onAction="#buttonReload" prefHeight="41.0" prefWidth="41.0" text="🗘">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="discrete_structures.scenes.Task4">
+    <children>
+        <Label fx:id="label2" alignment="CENTER" layoutX="122.0" layoutY="151.0" prefHeight="26.0" prefWidth="357.0"
+               textAlignment="CENTER">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Button fx:id="button1" layoutX="181.0" layoutY="277.0" mnemonicParsing="false" onAction="#buttonCheck"
+                prefHeight="41.0" prefWidth="179.0" text="Проверить">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <Label layoutX="150.0" layoutY="85.0" prefHeight="55.0" prefWidth="300.0"
+               text="Выбрать имя функции по заданному вектору" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="comboBox1" layoutX="198.0" layoutY="185.0" prefHeight="25.0" prefWidth="205.0"/>
+        <Label fx:id="label3" alignment="CENTER" layoutX="122.0" layoutY="235.0" prefHeight="21.0" prefWidth="357.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Button alignment="CENTER" layoutX="379.0" layoutY="277.0" mnemonicParsing="false" onAction="#buttonReload"
+                prefHeight="41.0" prefWidth="41.0" text="🗘">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Button>
+        <Label fx:id="label4" alignment="CENTER" layoutX="121.0" layoutY="331.0" prefHeight="21.0" prefWidth="300.0"
+               text="Попыток: 0">
+            <font>
+                <Font size="13.0"/>
+            </font>
+        </Label>
+    </children>
 </Pane>

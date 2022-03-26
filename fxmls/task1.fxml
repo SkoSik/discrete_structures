@@ -8,35 +8,43 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Task1">
-   <children>
-      <Button fx:id="button1" layoutX="211.0" layoutY="290.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="41.0" prefWidth="179.0" text="Получить функцию">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
-      <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="241.0" prefHeight="21.0" prefWidth="430.0">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="67.0" prefWidth="300.0" text="Генерация случайной функции по заданному числу переменных" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="comboBox1" layoutX="311.0" layoutY="188.0" prefHeight="25.0" prefWidth="44.0" promptText="1">
-      <items>
-         <FXCollections fx:factory="observableArrayList">
-            <String fx:value="1" />
-            <String fx:value="2" />
-            <String fx:value="3" />
-            <String fx:value="4" />
-            <String fx:value="5" />
-         </FXCollections>
-      </items>
-      </ComboBox>
-      <Label layoutX="210.0" layoutY="190.0" prefHeight="21.0" prefWidth="101.0" text="Переменных:">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="discrete_structures.scenes.Task1">
+    <children>
+        <Button fx:id="button1" layoutX="211.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked"
+                prefHeight="41.0" prefWidth="179.0" text="Получить функцию">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="226.0"
+               prefHeight="21.0" prefWidth="430.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="150.0" layoutY="85.0" prefHeight="67.0" prefWidth="300.0"
+               text="Генерация случайной функции по заданному числу переменных" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="comboBox1" layoutX="311.0" layoutY="173.0" prefHeight="25.0" prefWidth="44.0" promptText="1">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1"/>
+                    <String fx:value="2"/>
+                    <String fx:value="3"/>
+                    <String fx:value="4"/>
+                    <String fx:value="5"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label layoutX="210.0" layoutY="175.0" prefHeight="21.0" prefWidth="101.0" text="Переменных:">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+    </children>
 </Pane>

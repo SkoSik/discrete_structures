@@ -82,35 +82,15 @@ public class BoolFunction extends BinNumber {
         return new BoolFunction(parseIntToBin(randInt(pow(2, pow(2, _vars))), _vars), _vars);
     }
 
-    public static int[] parseIntToBin(int number, int vars) {
-        int new_size = pow(2, vars);
-        int[] array = new int[new_size];
-
-        for (int i = new_size - 1; i >= 0; i--) {
-            array[i] = number % 2;
-            number /= 2;
-        }
-        return array;
-    }
-
-    //для красоты переопределил из BinNum, использоваться не будет
-    public static String parseIntToBinString(int number, int vars){
-        int new_size = pow(2, vars);
+    public static String parseIntToBin(int number, int vars) {
         String array = "";
-        int sz = 0;
-        while (number > 0) {
-            array += number % 2;
+
+        do {
+            array = number % 2 + array;
             number /= 2;
-            sz++;
-        }
-        while(array.length() < new_size)
-            array += '0';
+        } while (number > 0);
 
-        String reverse = "";
-        for(int i = array.length()-1; i >= 0; i--)
-            reverse += array.charAt(i);
-
-        return reverse;
+        return String.format("%" + pow(2, vars) + "s", array).replace(' ', '0');
     }
 
     public BoolFunction getResidual(int ost, int var) {

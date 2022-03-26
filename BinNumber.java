@@ -14,21 +14,18 @@ public class BinNumber {
 
     public BinNumber(int[] _array) {
         setArray(_array);
-        length = _array.length;
     }
 
     public BinNumber(String _array) {
         setArray(_array);
-        length = _array.length();
     }
 
     public BinNumber(int number) {
         setArray(parseIntToBin(number));
-        length = array.length;
     }
-    public BinNumber(int number, int len){
+
+    public BinNumber(int number, int len) {
         setArray(parseIntToBin(number), len);
-        length = len;
     }
 
     public int parseToInt() {
@@ -47,36 +44,16 @@ public class BinNumber {
     public static String parseIntToBin(int number) {
         String array = "";
 
-        if (number == 0)
-            return "0";
-
-        while (number > 0) {
-            array += number % 2;
+        do {
+            array = number % 2 + array;
             number /= 2;
-        }
-        String reverse = "";
-        for(int i = array.length()-1; i >= 0; i--)
-            reverse += array.charAt(i);
+        } while (number > 0);
 
-        return reverse;
+        return array;
     }
-    //Для 12, так что руки прочь
-    public static String parseIntToBinString(int number, int len){
-        String array = "";
-        int sz = 0;
-        while (number > 0) {
-            array += number % 2;
-            number /= 2;
-            sz++;
-        }
-        while(array.length() < len)
-            array += '0';
 
-        String reverse = "";
-        for(int i = array.length()-1; i >= 0; i--)
-            reverse += array.charAt(i);
-
-        return reverse;
+    public static String parseIntToBinString(int number, int len) {
+        return String.format("%" + len + "s", parseIntToBin(number)).replace(' ', '0');
     }
 
     public int getValue(int id) {
@@ -114,6 +91,7 @@ public class BinNumber {
                 throw new IllegalArgumentException("Данная строка не является булевой функцией");
             array[i] = _array.charAt(i) - '0';
         }
+        length = array.length;
     }
 
     public void setArray(int[] _array) {
@@ -121,16 +99,20 @@ public class BinNumber {
             if (a != 0 && a != 1) throw new IllegalArgumentException("Данный массив не является булевой функцией");
         }
         array = _array;
+        length = array.length;
     }
+
     public void setArray(String _array, int len) {
         array = new int[len];
         if (array.length == 0) throw new IllegalArgumentException("Данная строка не является булевой функцией");
-        for (int i = len-_array.length(), j = 0; i < len; i++, j++) {
+        for (int i = len - _array.length(), j = 0; i < len; i++, j++) {
             if (_array.charAt(j) != '0' && _array.charAt(j) != '1')
                 throw new IllegalArgumentException("Данная строка не является булевой функцией");
             array[i] = _array.charAt(j) - '0';
         }
+        length = array.length;
     }
+
     public static int randInt(int max) {
         return (int) Math.floor(Math.random() * max);
     }
@@ -182,7 +164,7 @@ public class BinNumber {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BinNumber binNumber = (BinNumber) o;
-        return length == binNumber.length && Arrays.equals(array, binNumber.array);
+        return Arrays.equals(array, binNumber.array);
     }
 
     public int hashCode() {

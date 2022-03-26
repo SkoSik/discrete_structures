@@ -7,9 +7,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class NF {
-    int vars;
-    public
-    Set<BinNumber> set = new HashSet<>();
+    public int vars;
+    public Set<BinNumber> set = new HashSet<>();
     public static String delimiter;
 
     public NF(int _vars) {
@@ -35,7 +34,6 @@ public abstract class NF {
 
     private void buildNFbyMask(char[] s, int i) {
         if (i == s.length) {
-//            set.add(new BoolFunction(String.valueOf(s), vars));
             set.add(new BinNumber(String.valueOf(s)));
             return;
         }

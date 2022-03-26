@@ -1,64 +1,62 @@
 package discrete_structures.scenes;
 
-import discrete_structures.BoolFunction;
-import discrete_structures.SDNF;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import discrete_structures.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.*;
 
-import discrete_structures.BinNumber;
 import javafx.scene.paint.Color;
 
 public class Task10 implements Initializable {
 
-    Map<String, BinNumber> vectors = new HashMap<>();
-    BinNumber binNumber;
+    GameLogic gameLogic;
+    BoolFunction binNumber;
 
     @FXML
     private Button button1;
     @FXML
-    private Label label2, label3;
+    private Label label2, label3, label4;
     @FXML
-    private ComboBox<String> comboBox1;
+    private CheckBox cb1, cb2, cb3, cb4, cb5;
+    private CheckBox[] checkBoxes;
 
     @FXML
     public void buttonReload() {
-        List<String> list = new ArrayList<>(vectors.keySet());
-        Collections.shuffle(list);
-        comboBox1.getItems().setAll(list);
-        comboBox1.setValue(list.get(0));
+        binNumber = BoolFunction.randBoolFunction(GameLogic.getVars());
+        label2.setText(binNumber.toOutput());
+        for (CheckBox a : checkBoxes) a.setSelected(false);
 
-        binNumber = BoolFunction.randBoolFunction(2);
-        label2.setText(binNumber.toString());
-        
-        label3.setText("");
-        button1.setDisable(false);
+        gameLogic.reload();
     }
 
     @FXML
     public void buttonCheck() {
-        if (binNumber.equals(vectors.get(comboBox1.getValue()))) {
-            label3.setTextFill(Color.color(0, 0.7, 0));
-            label3.setText("Правильно");
-        } else {
-            label3.setTextFill(Color.color(0.7, 0, 0));
-            label3.setText("Неправильно");
+        Boolean[] fullness = new Boolean[5];
+        fullness[0] = binNumber.isSaveZero();
+        fullness[1] = binNumber.isSaveOne();
+        fullness[2] = binNumber.isSelfDuality();
+        fullness[3] = binNumber.isMonotony();
+        fullness[4] = binNumber.isLinear();
+
+        boolean ans = true;
+        for (int i = 0; i < 5; i++) {
+            if (!fullness[i] == checkBoxes[i].isSelected()) ans = false;
         }
-        button1.setDisable(true);
+
+        gameLogic.check(ans);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String[] temp = new String[]{"Ноль", "Конъюкция", "Отрицание импликации", "X", "Отрицание обратной импликации", "Y", "Сложение по модулю 2", "Диъюнкция",
-                "Стрелка Пирса", "Эквивалентность", "Отрицание Y", "Обратная импликация", "Отрицание X", "Импликация", "Штрих Шеффера", "Единица"};
-        for (int i = 0; i < 16; i++) {
-            vectors.put(temp[i], new BoolFunction(i, 2));
-        }
+        gameLogic = new GameLogic(button1, label3, label4);
+        checkBoxes = new CheckBox[]{cb1, cb2, cb3, cb4, cb5};
         buttonReload();
     }
 }
