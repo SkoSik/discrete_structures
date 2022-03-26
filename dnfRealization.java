@@ -1,12 +1,6 @@
 package discrete_structures;
-
-import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
-import sun.awt.image.PixelConverter;
-
-import java.awt.event.HierarchyBoundsAdapter;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class dnfRealization {
     public static class matrix{
@@ -14,7 +8,7 @@ public class dnfRealization {
         public int high, width;
         public int[] highPrecalc;
         ArrayList<String> terms, sdnfs;
-        ArrayList<Set<String>> pokrterm;
+//        ArrayList<Set<String>> pokrterm;
         public matrix(){
             table = null;
             high = width = 0;
@@ -25,10 +19,10 @@ public class dnfRealization {
             width = _width;
             high = _high;
             table = new int[high][width];
-            pokrterm = new ArrayList<>();
+//            pokrterm = new ArrayList<>();
         }
         public matrix(ArrayList<String> _terms, ArrayList<String> _sdnfs){
-            pokrterm = new ArrayList<>();
+//            pokrterm = new ArrayList<>();
             terms = new ArrayList<>(_terms);
             sdnfs = new ArrayList<>(_sdnfs);
             high = terms.size();
@@ -39,7 +33,7 @@ public class dnfRealization {
             for(int i = 0; i < high; i++) {
                 Set<String> set = new HashSet<>();
                 set.add(_terms.get(i));
-                pokrterm.add(set);
+//                pokrterm.add(set);
                 for (int j = 0; j < width; j++) {
                     boolean check = true;
                     for (int k = 0; k < terms.get(0).length(); k++)
@@ -79,7 +73,7 @@ public class dnfRealization {
             return dnf;
         }
     }
-    static int bestind = 999, bestsz = 999;
+    static int bestsz = 999;
     static Set<Integer> bestset = new HashSet<>();
 
     public static void pokr(matrix matr, ArrayList<Set<Integer>> ar, Set<Integer> answer){
@@ -90,18 +84,11 @@ public class dnfRealization {
             int l = 0;
             ArrayList<Set<Integer>> tmp = new ArrayList<>();
             matrix matr2 = new matrix(matr.high-i-1, matr.width);
-//            Set<Integer> set1 = new HashSet<>(ar.get(i));
-//            if(isFull(matr2.table[l]) && bestsz > set1.size()){
-//                System.out.println(1);
-//                bestset = set1;
-//                bestsz = set1.size();
-//            }
             for (int j = i + 1; j < matr.high; j++) {
                 Set<Integer> set = new HashSet<>();
-                matr2.pokrterm.add(matr.pokrterm.get(j));
+//                matr2.pokrterm.add(matr.pokrterm.get(j));
                 boolean b1 = false, b2 =false;
                 for (int k = 0; k < matr.width; k++) {
-//                    matr2.table[l][k] = Math.max(matr.table[i][k], matr.table[j][k]);
                     if(matr.table[i][k] >= matr.table[j][k]){
                         matr2.table[l][k] = matr.table[i][k];
                         b1 = true;
@@ -188,20 +175,30 @@ public class dnfRealization {
     public static void func2(ArrayList<String> ans, ArrayList<String> nabori, Set<Integer> answer){
 
         int rowLen = nabori.size(), colLen = ans.size();
-        int[][] table = new int[colLen][rowLen];
         int[] xBlock = new int[colLen], yBlock = new int[rowLen], colPrecalc = new int[rowLen];
-        Set<String> dnf = new HashSet<>();
 
         matrix matr = new matrix(ans, nabori);
-        dnf = matr.takeOutCores(xBlock, yBlock);
+        Set<String> dnf = matr.takeOutCores(xBlock, yBlock);
+//        dnf = matr.takeOutCores(xBlock, yBlock);
 
         ArrayList<String> minusCores = new ArrayList<>(), minusSDNFS = new ArrayList<>();
-        for(int i = 0; i < xBlock.length; i++)
-            if(xBlock[i] != 1)
+
+
+//        for(int i = 0; i < xBlock.length; i++)
+//            if(xBlock[i] != 1)
+//                minusCores.add(matr.terms.get(i));
+//        for(int i = 0; i < yBlock.length; i++)
+//            if(yBlock[i] != 1)
+//                minusSDNFS.add(matr.sdnfs.get(i));
+
+
+        for(int i = 0; i < Math.max(xBlock.length, yBlock.length); i++){
+            if(i < xBlock.length && xBlock[i] != 1)
                 minusCores.add(matr.terms.get(i));
-        for(int i = 0; i < yBlock.length; i++)
-            if(yBlock[i] != 1)
+            if(i < yBlock.length && yBlock[i] != 1)
                 minusSDNFS.add(matr.sdnfs.get(i));
+        }
+
 
         matrix matr2 = new matrix(minusCores, minusSDNFS);
 
@@ -212,11 +209,15 @@ public class dnfRealization {
             s.add(i);
             inds.add(s);
         }
-//        System.out.println(dnf);
         pokr(matr2, inds, answer);
         for(int i : bestset){
             dnf.add(matr2.terms.get(i));
         }
+
+        System.out.println(String.join(" V ", dnfOutTerms(dnf)));
+    }
+
+    public static ArrayList<String> dnfOutTerms(Set<String> dnf){
         ArrayList<String> dnfout = new ArrayList<>();
         for(String i : dnf){
             String tmp = "";
@@ -227,13 +228,11 @@ public class dnfRealization {
                     tmp += "¬x" + (j + 1);
             dnfout.add(tmp);
         }
-        System.out.println(String.join(" V ",dnfout));
+        return dnfout;
     }
-
     public static void main(String[] args) {
-//        BoolFunction bool = new BoolFunction("0001110101011100");
 //        BoolFunction bool = new BoolFunction("1110001000000011");
-        BoolFunction bool = new BoolFunction("1100110000111110");
+        BoolFunction bool = new BoolFunction("0001110101011100");
 
         ArrayList<String> nabori = new ArrayList<>(), ans = new ArrayList<>(), nabori2, ans2 = new ArrayList<>();
         int eds = 0;
