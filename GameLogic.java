@@ -46,6 +46,6 @@ public class GameLogic {
     }
 
     public static int getVars() {
-        return (App.VARS == 0) ? BinNumber.randInt(App.VMAX_BORDER) + App.VMIN_BORDER : App.VARS;
+        return (App.VARS == 0) ? BinNumber.randInt(App.VMAX_BORDER - App.VMIN_BORDER + 1) + App.VMIN_BORDER : App.VARS;
     }
 }

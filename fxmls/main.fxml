@@ -5,37 +5,46 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Info">
-   <children>
-      <Label alignment="CENTER" layoutX="40.0" layoutY="68.0" prefHeight="105.0" prefWidth="520.0" text="Данная программа была создана в рамках работы студентов в семестре по дисциплине &quot;Дискретные структуры&quot; раздела &quot;Булевы функции&quot; и представляет из себя ряд приложений обучающего характера." textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="36.0" layoutY="173.0" prefHeight="76.0" prefWidth="528.0" text="Пользователи могут использовать Алгоритмы программы для решения задач и тренировать свои навыки работы с булевыми функциями в Играх." textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="366.0" prefHeight="20.0" prefWidth="132.0" text="Version:  1.0">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Hyperlink fx:id="hyperlink" layoutX="527.0" layoutY="362.0" prefHeight="34.0" prefWidth="66.0" style="-fx-border-color: transparent;" text="GitHub">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Hyperlink>
-      <Label alignment="CENTER_RIGHT" layoutX="309.0" layoutY="264.0" prefHeight="34.0" prefWidth="66.0" text="Авторы:" textAlignment="RIGHT">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="395.0" layoutY="264.0" prefHeight="76.0" prefWidth="165.0" text="Слободян Илья, Загородников Михаил, Тучинов Филипп." wrapText="true">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="discrete_structures.scenes.Info">
+    <children>
+        <Label alignment="CENTER" layoutX="40.0" layoutY="68.0" prefHeight="105.0" prefWidth="520.0"
+               text="Данная программа была создана в рамках работы студентов в семестре по дисциплине &quot;Дискретные структуры&quot; раздела &quot;Булевы функции&quot; и представляет из себя ряд приложений обучающего характера."
+               textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="36.0" layoutY="173.0" prefHeight="76.0" prefWidth="528.0"
+               text="Пользователи могут использовать Алгоритмы программы для решения задач и тренировать свои навыки работы с булевыми функциями в Играх."
+               textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="14.0" layoutY="366.0" prefHeight="20.0" prefWidth="132.0" text="Version:  1.0">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Label>
+        <Hyperlink fx:id="hyperlink" layoutX="527.0" layoutY="362.0" prefHeight="34.0" prefWidth="66.0"
+                   style="-fx-border-color: transparent;" text="GitHub">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Hyperlink>
+        <Label alignment="CENTER_RIGHT" layoutX="309.0" layoutY="264.0" prefHeight="34.0" prefWidth="66.0"
+               text="Авторы:" textAlignment="RIGHT">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="395.0" layoutY="264.0" prefHeight="76.0" prefWidth="165.0"
+               text="Слободян Илья, Загородников Михаил, Тучинов Филипп." wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+    </children>
 </Pane>

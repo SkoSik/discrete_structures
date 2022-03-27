@@ -7,34 +7,67 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task2">
-   <children>
-      <Label fx:id="label1" layoutX="91.0" layoutY="126.0" prefHeight="18.0" prefWidth="147.0" text="Вектор функции" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="label2" layoutX="88.0" layoutY="158.0" prefHeight="61.0" prefWidth="147.0" text="Нулевая или единичная остаточная(0 или 1)" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="label3" layoutX="88.0" layoutY="243.0" prefHeight="18.0" prefWidth="147.0" text="Номер аргумента" textAlignment="CENTER" wrapText="true" />
-      <TextField fx:id="textfield1" layoutX="342.0" layoutY="122.0" />
-      <Button fx:id="button1" layoutX="241.0" layoutY="315.0" mnemonicParsing="false" onAction="#buttonClicked" text="Найти остаточную" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="label4" layoutX="184.0" layoutY="285.0" prefHeight="18.0" prefWidth="232.0" textAlignment="CENTER" />
-      <ComboBox fx:id="combobox1" layoutX="342.0" layoutY="176.0" prefWidth="150.0">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="0" />
-               <String fx:value="1" />
-            </FXCollections>
-         </items>
-      </ComboBox>
-      <ComboBox fx:id="combobox2" layoutX="343.0" layoutY="239.0" prefHeight="25.0" prefWidth="181.0">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="1" />
-               <String fx:value="2" />
-               <String fx:value="3" />
-               <String fx:value="4" />
-               <String fx:value="5" />
-            </FXCollections>
-         </items>
-      </ComboBox>
-      <Label fx:id="error" layoutX="235.0" layoutY="355.0" prefHeight="18.0" prefWidth="130.0" />
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="discrete_structures.scenes.Task2">
+    <children>
+        <Label fx:id="label1" layoutX="246.0" layoutY="94.0" prefHeight="21.0" prefWidth="120.0" text="Вектор функции:"
+               textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label fx:id="label2" layoutX="117.0" layoutY="159.0" prefHeight="61.0" prefWidth="254.0"
+               text="Нулевая или единичная остаточная:" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label fx:id="label3" layoutX="241.0" layoutY="229.0" prefHeight="21.0" prefWidth="130.0"
+               text="Номер аргумента:" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="textfield1" layoutX="178.0" layoutY="125.0" prefHeight="25.0" prefWidth="254.0"/>
+        <Button fx:id="button1" layoutX="222.0" layoutY="318.0" mnemonicParsing="false" onAction="#buttonClicked"
+                prefHeight="46.0" prefWidth="166.0" text="Найти остаточную" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <Label fx:id="label4" alignment="CENTER" layoutX="88.0" layoutY="275.0" prefHeight="21.0" prefWidth="436.0"
+               textAlignment="CENTER">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="combobox1" layoutX="380.0" layoutY="177.0" prefHeight="25.0" prefWidth="29.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="0"/>
+                    <String fx:value="1"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="combobox2" layoutX="380.0" layoutY="227.0" prefHeight="25.0" prefWidth="50.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1"/>
+                    <String fx:value="2"/>
+                    <String fx:value="3"/>
+                    <String fx:value="4"/>
+                    <String fx:value="5"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label fx:id="error" alignment="CENTER" layoutX="31.0" layoutY="275.0" prefHeight="21.0" prefWidth="550.0"
+               textFill="#c61b1b">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+    </children>
 </Pane>

@@ -32,21 +32,14 @@ public class Task7 implements Initializable {
     Label label1, label2, label3;
 
     @FXML
-    public void buttonX(ActionEvent e) {
+    private void buttonClick(ActionEvent e) {
         String id = ((Button) e.getSource()).getText();
-        mask += id.charAt(1);
+        mask += (id.length() > 1) ? id.charAt(1) : id;
         textarea.setText(textarea.getText() + id);
     }
 
     @FXML
-    public void buttonOperation(ActionEvent e) {
-        String id = ((Button) e.getSource()).getText();
-        mask += id;
-        textarea.setText(textarea.getText() + id);
-    }
-
-    @FXML
-    public void buttonCheck() {
+    private void buttonCheck() {
         try {
             SKNF sknf = SKNF.build(mask, bin.vars);
             BoolFunction test = new BoolFunction(sknf, bin.vars);
@@ -57,7 +50,7 @@ public class Task7 implements Initializable {
     }
 
     @FXML
-    public void buttonDelete() {
+    private void buttonDelete() {
         String knf = textarea.getText();
         if (!(knf.length() == 0)) {
             int last = mask.charAt(mask.length() - 1);
@@ -68,7 +61,7 @@ public class Task7 implements Initializable {
     }
 
     @FXML
-    public void buttonReload() {
+    private void buttonReload() {
         textarea.setText("");
         mask = "";
 

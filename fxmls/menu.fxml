@@ -4,32 +4,35 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 
-<MenuBar prefHeight="25.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="discrete_structures.scenes.Menu">
-   <menus>
-      <Menu mnemonicParsing="false" text="Алгоритмы">
-         <items>
-            <MenuItem fx:id="task1" mnemonicParsing="false" onAction="#changeScene" text="Случайная функция" />
-            <MenuItem fx:id="task2" mnemonicParsing="false" onAction="#changeScene" text="Остаточная функции" />
-            <MenuItem fx:id="task3" mnemonicParsing="false" onAction="#changeScene" text="Функция по остаточным" />
-            <MenuItem fx:id="task8" mnemonicParsing="false" onAction="#changeScene" text="СДНФ" />
-            <MenuItem fx:id="task9" mnemonicParsing="false" onAction="#changeScene" text="СКНФ" />
-            <MenuItem fx:id="task12" mnemonicParsing="false" onAction="#changeScene" text="ДНФ" />
-         </items>
-      </Menu>
-      <Menu mnemonicParsing="false" text="Игры">
-         <items>
-            <MenuItem fx:id="task4" mnemonicParsing="false" onAction="#changeScene" text="Имя функции" />
-            <MenuItem fx:id="task5" mnemonicParsing="false" onAction="#changeScene" text="Существенные и фиктивные переменные" />
-            <MenuItem fx:id="task6" mnemonicParsing="false" onAction="#changeScene" text="ДНФ" />
-            <MenuItem fx:id="task7" mnemonicParsing="false" onAction="#changeScene" text="КНФ" />
-            <MenuItem fx:id="task10" mnemonicParsing="false" onAction="#changeScene" text="Замкнутые классы" />
-            <MenuItem fx:id="task11" mnemonicParsing="false" onAction="#changeScene" text="Полные системы" />
-         </items>
-      </Menu>
-      <Menu mnemonicParsing="false" text="Инфо">
-         <items>
-            <MenuItem fx:id="main" mnemonicParsing="false" onAction="#changeScene" text="О программе" />
-            <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#changeScene" text="Настройки" />
-         </items></Menu>
-   </menus>
+<MenuBar prefHeight="25.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="discrete_structures.scenes.Menu">
+    <menus>
+        <Menu mnemonicParsing="false" text="Алгоритмы">
+            <items>
+                <MenuItem fx:id="task1" mnemonicParsing="false" onAction="#changeScene" text="Случайная функция"/>
+                <MenuItem fx:id="task2" mnemonicParsing="false" onAction="#changeScene" text="Остаточная функции"/>
+                <MenuItem fx:id="task3" mnemonicParsing="false" onAction="#changeScene" text="Функция по остаточным"/>
+                <MenuItem fx:id="task8" mnemonicParsing="false" onAction="#changeScene" text="СДНФ"/>
+                <MenuItem fx:id="task9" mnemonicParsing="false" onAction="#changeScene" text="СКНФ"/>
+                <MenuItem fx:id="task12" mnemonicParsing="false" onAction="#changeScene" text="ДНФ"/>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Игры">
+            <items>
+                <MenuItem fx:id="task4" mnemonicParsing="false" onAction="#changeScene" text="Имя функции"/>
+                <MenuItem fx:id="task5" mnemonicParsing="false" onAction="#changeScene"
+                          text="Существенные и фиктивные переменные"/>
+                <MenuItem fx:id="task6" mnemonicParsing="false" onAction="#changeScene" text="ДНФ"/>
+                <MenuItem fx:id="task7" mnemonicParsing="false" onAction="#changeScene" text="КНФ"/>
+                <MenuItem fx:id="task10" mnemonicParsing="false" onAction="#changeScene" text="Замкнутые классы"/>
+                <MenuItem fx:id="task11" mnemonicParsing="false" onAction="#changeScene" text="Полные системы"/>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Инфо">
+            <items>
+                <MenuItem fx:id="main" mnemonicParsing="false" onAction="#changeScene" text="О программе"/>
+                <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#changeScene" text="Настройки"/>
+            </items>
+        </Menu>
+    </menus>
 </MenuBar>

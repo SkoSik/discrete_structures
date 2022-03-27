@@ -50,7 +50,7 @@ public class SKNF extends NF {
                     isVar = false;
                 }
             }
-            if (!isBrackets && (sknf.length > 1 || usedVars > 1))
+            if (!isBrackets && ((sknf.length > 1 && usedVars > 1) || usedVars > 1))
                 throw new IllegalArgumentException("Некорректный КНФ");
 
             mask.add(maskElem);

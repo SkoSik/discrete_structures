@@ -25,13 +25,16 @@ public class Task2 implements Initializable {
 
     @FXML
     public void buttonClicked() {
-        BoolFunction bn = new BoolFunction(textfield1.getText());
-        int ost, var;
-        ost = Integer.parseInt((String) combobox1.getValue());
-        var = Integer.parseInt((String) combobox2.getValue());
+        error.setText("");
+        label4.setText("");
         try {
-            String s = bn.getResidual(ost, var).toString();
-            label4.setText(s);
+            BoolFunction bn = new BoolFunction(textfield1.getText());
+
+            int ost, var;
+            ost = Integer.parseInt(combobox1.getValue().toString());
+            var = Integer.parseInt(combobox2.getValue().toString());
+
+            label4.setText(bn.getResidual(ost, var).toString());
         } catch (Exception e) {
             error.setText(e.getMessage());
         }
@@ -39,5 +42,7 @@ public class Task2 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        combobox1.setValue(0);
+        combobox2.setValue(1);
     }
 }
