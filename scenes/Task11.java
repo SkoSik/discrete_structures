@@ -1,6 +1,5 @@
 package discrete_structures.scenes;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import discrete_structures.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,8 +8,6 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.*;
 
-import javafx.scene.paint.Color;
-
 public class Task11 implements Initializable {
 
     GameLogic gameLogic;
@@ -18,9 +15,9 @@ public class Task11 implements Initializable {
     int number_of_funcs;
 
     @FXML
-    private Button button1, button_setSetBoolFunc;
+    private Button button1;
     @FXML
-    private Label label2, label3, label4;
+    private Label label3, label4;
     @FXML
     private CheckBox cb1, cb2, cb3, cb4, cb5;
     private CheckBox[] checkBoxes;
@@ -30,7 +27,7 @@ public class Task11 implements Initializable {
     private TextArea textarea;
 
     public void setSetBoolFunc() {
-        number_of_funcs =  Integer.parseInt((String) cb_number_of_funcs.getValue());
+        number_of_funcs = Integer.parseInt((String) cb_number_of_funcs.getValue());
         binNumber = new BoolFunction[number_of_funcs];
         for (int i = 0; i < number_of_funcs; i++) {
             binNumber[i] = BoolFunction.randBoolFunction(GameLogic.getVars());
@@ -68,7 +65,6 @@ public class Task11 implements Initializable {
 
         boolean ans = true;
         for (int i = 0; i < 5; i++) {
-            System.out.println(fullness[i]);
             if (!fullness[i] == checkBoxes[i].isSelected()) ans = false;
         }
 
@@ -79,7 +75,7 @@ public class Task11 implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         gameLogic = new GameLogic(button1, label3, label4);
         checkBoxes = new CheckBox[]{cb1, cb2, cb3, cb4, cb5};
-        cb_number_of_funcs.setValue("5");
+        cb_number_of_funcs.setValue("2");
         buttonReload();
     }
 }

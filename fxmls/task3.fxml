@@ -6,45 +6,48 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task3">
-   <children>
-      <Label layoutX="17.0" layoutY="144.0" text="Вектор:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button fx:id="button1" layoutX="264.0" layoutY="346.0" mnemonicParsing="false" onAction="#button1Clicked" prefHeight="47.0" prefWidth="128.0" text="Составить вектор" />
-      <TextField fx:id="textfield1" layoutX="253.0" layoutY="273.0" />
-      <TextField fx:id="textfield2" layoutX="253.0" layoutY="309.0" />
-      <Label layoutX="131.0" layoutY="277.0" text="Нулевая остаточная" />
-      <Label layoutX="118.0" layoutY="313.0" text="Единичная остаточная" />
-      <Label layoutX="19.0" layoutY="38.0" text="По нулевой и единичной остаточной составить вектор функции">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="145.0" layoutY="241.0" text="Номер аргумента" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="discrete_structures.scenes.Task3">
+    <children>
+        <Label layoutX="17.0" layoutY="144.0" text="Вектор:">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Button fx:id="button1" layoutX="264.0" layoutY="346.0" mnemonicParsing="false" onAction="#button1Clicked"
+                prefHeight="47.0" prefWidth="128.0" text="Составить вектор"/>
+        <TextField fx:id="textfield1" layoutX="253.0" layoutY="273.0"/>
+        <TextField fx:id="textfield2" layoutX="253.0" layoutY="309.0"/>
+        <Label layoutX="131.0" layoutY="277.0" text="Нулевая остаточная"/>
+        <Label layoutX="118.0" layoutY="313.0" text="Единичная остаточная"/>
+        <Label layoutX="19.0" layoutY="38.0" text="По нулевой и единичной остаточной составить вектор функции">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Label layoutX="145.0" layoutY="241.0" text="Номер аргумента"/>
 
-      <Label fx:id="anslabel" layoutX="117.0" layoutY="144.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="exception" layoutX="21.0" layoutY="198.0" prefHeight="31.0" prefWidth="621.0" textFill="RED">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="comboBox1" layoutX="253.0" layoutY="237.0" prefHeight="25.0" prefWidth="149.0">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="1" />
-               <String fx:value="2" />
-               <String fx:value="3" />
-               <String fx:value="4" />
-               <String fx:value="5" />
-            </FXCollections>
-         </items>
-      </ComboBox>
-   </children>
+        <Label fx:id="anslabel" layoutX="117.0" layoutY="144.0">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Label fx:id="exception" layoutX="21.0" layoutY="198.0" prefHeight="31.0" prefWidth="621.0" textFill="RED">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="comboBox1" layoutX="253.0" layoutY="237.0" prefHeight="25.0" prefWidth="149.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1"/>
+                    <String fx:value="2"/>
+                    <String fx:value="3"/>
+                    <String fx:value="4"/>
+                    <String fx:value="5"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </children>
 </Pane>

@@ -34,9 +34,10 @@ public class Task12 implements Initializable {
                 return;
 
             BoolFunction bool;
-            if (s.charAt(0) == '%')
+            if (s.charAt(0) == '%') {
                 bool = BoolFunction.randBoolFunction(Integer.parseInt(s.substring(1)));
-            else {
+                textfield.setText(bool.toString());
+            } else {
                 bool = new BoolFunction(s);
             }
 
@@ -55,8 +56,10 @@ public class Task12 implements Initializable {
             termReduction(nabori, ans);
             String dnfStr = consume(ans, nabori);
             textarea.setText(dnfStr);
-        }
-        catch (Exception e) {
+
+            bestset.clear();
+            bestsz = 999;
+        } catch (Exception e) {
             label.setText(e.getMessage());
         }
     }

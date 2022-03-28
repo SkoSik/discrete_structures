@@ -1,18 +1,14 @@
 package discrete_structures.scenes;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import discrete_structures.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.*;
-
-import javafx.scene.paint.Color;
 
 public class Task10 implements Initializable {
 
