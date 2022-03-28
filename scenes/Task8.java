@@ -2,7 +2,6 @@ package discrete_structures.scenes;
 
 import discrete_structures.BoolFunction;
 import discrete_structures.SDNF;
-import discrete_structures.SKNF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -17,30 +16,23 @@ public class Task8 implements Initializable {
 
     @FXML
     Label label;
-
     @FXML
     TextField textfield;
 
     @FXML
-    public void btnSDNFClicked(){
+    public void btnSDNFClicked() {
         try {
             label.setTextFill(Color.color(0, 0, 0));
             bool = new BoolFunction(textfield.getText());
             SDNF sdnf = new SDNF(bool);
             label.setText(sdnf.toString());
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             label.setTextFill(Color.color(0.7, 0, 0));
             label.setText(e.getMessage());
         }
     }
 
-    public void initNew(){
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initNew();
     }
 }

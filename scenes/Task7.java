@@ -9,10 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 
 public class Task7 implements Initializable {

@@ -13,6 +13,7 @@ public class Task11 implements Initializable {
     GameLogic gameLogic;
     BoolFunction[] binNumber;
     int number_of_funcs;
+    private CheckBox[] checkBoxes;
 
     @FXML
     private Button button1;
@@ -20,7 +21,6 @@ public class Task11 implements Initializable {
     private Label label3, label4;
     @FXML
     private CheckBox cb1, cb2, cb3, cb4, cb5;
-    private CheckBox[] checkBoxes;
     @FXML
     private ComboBox cb_number_of_funcs;
     @FXML

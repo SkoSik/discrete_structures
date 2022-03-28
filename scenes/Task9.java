@@ -16,30 +16,23 @@ public class Task9 implements Initializable {
 
     @FXML
     Label label;
-
     @FXML
     TextField textfield;
 
     @FXML
-    public void btnSKNFClicked(){
+    public void btnSKNFClicked() {
         try {
             label.setTextFill(Color.color(0, 0, 0));
             bool = new BoolFunction(textfield.getText());
             SKNF sknf = new SKNF(bool);
             label.setText(sknf.toString());
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             label.setTextFill(Color.color(0.7, 0, 0));
             label.setText(e.getMessage());
         }
     }
 
-    public void initNew(){
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initNew();
     }
 }

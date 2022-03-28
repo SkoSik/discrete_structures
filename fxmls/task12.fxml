@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="discrete_structures.scenes.Task12">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="discrete_structures.scenes.Task12">
     <children>
-        <Button fx:id="btn" alignment="CENTER" layoutX="252.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnClicked" prefHeight="46.0" prefWidth="97.0" text="Кнопка" />
-        <TextField fx:id="textfield" layoutX="101.0" layoutY="268.0" prefHeight="25.0" prefWidth="400.0" />
-        <Label alignment="CENTER" layoutX="100.0" layoutY="51.0" prefHeight="30.0" prefWidth="400.0" text="ДНФ по вектору функции">
+        <Button fx:id="btn" alignment="CENTER" layoutX="229.0" layoutY="321.0" mnemonicParsing="false"
+                onAction="#btnClicked" prefHeight="46.0" prefWidth="143.0" text="Построить ДНФ">
             <font>
-                <Font size="20.0" />
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <TextField fx:id="textfield" layoutX="71.0" layoutY="162.0" prefHeight="25.0" prefWidth="460.0"/>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="118.0" prefHeight="30.0" prefWidth="292.0"
+               text="Минимальная ДНФ по вектору функции">
+            <font>
+                <Font size="15.0"/>
             </font>
         </Label>
-        <Label fx:id="label" alignment="CENTER" layoutX="20.0" layoutY="229.0" prefHeight="30.0" prefWidth="560.0" textFill="RED">
+        <Label fx:id="label" alignment="CENTER" layoutX="76.0" layoutY="276.0" prefHeight="30.0" prefWidth="449.0"
+               textFill="RED">
             <font>
-                <Font size="20.0" />
+                <Font size="15.0"/>
             </font>
         </Label>
-      <TextArea fx:id="textarea" layoutX="36.0" layoutY="103.0" prefHeight="110.0" prefWidth="530.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextArea>
+        <TextArea fx:id="textarea" layoutX="76.0" layoutY="203.0" prefHeight="58.0" prefWidth="449.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextArea>
     </children>
 </Pane>

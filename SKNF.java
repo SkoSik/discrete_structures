@@ -1,8 +1,6 @@
 package discrete_structures;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.Stack;
 
 public class SKNF extends NF {
@@ -82,7 +80,7 @@ public class SKNF extends NF {
     }
 
     public void setDelimiter() {
-        delimiter = ") & (";
+        delimiter = ") ∧ (";
     }
 
     public String toString() {

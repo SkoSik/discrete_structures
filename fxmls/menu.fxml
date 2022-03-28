@@ -14,7 +14,7 @@
                 <MenuItem fx:id="task3" mnemonicParsing="false" onAction="#changeScene" text="Функция по остаточным"/>
                 <MenuItem fx:id="task8" mnemonicParsing="false" onAction="#changeScene" text="СДНФ"/>
                 <MenuItem fx:id="task9" mnemonicParsing="false" onAction="#changeScene" text="СКНФ"/>
-                <MenuItem fx:id="task12" mnemonicParsing="false" onAction="#changeScene" text="ДНФ"/>
+                <MenuItem fx:id="task12" mnemonicParsing="false" onAction="#changeScene" text="Минимальная ДНФ"/>
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Игры">

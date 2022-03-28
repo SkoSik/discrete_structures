@@ -3,15 +3,12 @@ package discrete_structures.scenes;
 import discrete_structures.BoolFunction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
-import discrete_structures.BinNumber;
 import javafx.scene.control.TextField;
 
 public class Task2 implements Initializable {

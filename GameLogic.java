@@ -20,7 +20,6 @@ public class GameLogic {
         if (!App.ATTEMPTS) {
             labelAttemts.setVisible(false);
         }
-
     }
 
     public void check(boolean result) {

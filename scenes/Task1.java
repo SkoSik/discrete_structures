@@ -1,6 +1,5 @@
 package discrete_structures.scenes;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import discrete_structures.BoolFunction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,8 +8,6 @@ import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import discrete_structures.BinNumber;
 
 public class Task1 implements Initializable {
 

@@ -1,7 +1,6 @@
 package discrete_structures.scenes;
 
 import discrete_structures.*;
-import discrete_structures.SKNF;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,10 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 
 public class Task6 implements Initializable {

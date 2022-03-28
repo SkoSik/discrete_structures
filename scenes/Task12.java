@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 import discrete_structures.BinNumber;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 
 public class Task12 implements Initializable {
     static int bestsz = 999;
@@ -21,7 +20,6 @@ public class Task12 implements Initializable {
     Label label;
     @FXML
     TextArea textarea;
-
     @FXML
     TextField textfield;
 

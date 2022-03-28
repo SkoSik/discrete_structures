@@ -18,16 +18,12 @@ public class Settings implements Initializable {
 
     @FXML
     private Pane randV, varsV;
-
     @FXML
     private Label error;
-
     @FXML
     private CheckBox checkBoxRandVars, checkBoxAttemts;
-
     @FXML
     private ComboBox comboBoxMin, comboBoxMax, comboBoxVars;
-
     @FXML
     private TextField attemts;
 

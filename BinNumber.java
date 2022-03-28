@@ -1,9 +1,7 @@
 package discrete_structures;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class BinNumber {
     public int length;

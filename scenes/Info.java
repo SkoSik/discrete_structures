@@ -18,10 +18,6 @@ public class Info implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        hyperlink.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                App.openWeb("https://github.com/SkoSik/discrete_structures");
-            }
-        });
+        hyperlink.setOnAction(event -> App.openWeb("https://github.com/SkoSik/discrete_structures"));
     }
 }

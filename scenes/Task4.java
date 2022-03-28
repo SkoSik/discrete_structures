@@ -1,11 +1,10 @@
 package discrete_structures.scenes;
 
+import discrete_structures.BinNumber;
 import discrete_structures.BoolFunction;
 import discrete_structures.GameLogic;
-import discrete_structures.SDNF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -13,11 +12,9 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.*;
 
-import discrete_structures.BinNumber;
-import javafx.scene.paint.Color;
-
 public class Task4 implements Initializable {
 
+    private GameLogic gameLogic;
     Map<String, BinNumber> vectors = new HashMap<>();
     BinNumber binNumber;
 
@@ -27,8 +24,6 @@ public class Task4 implements Initializable {
     private Label label2, label3, label4;
     @FXML
     private ComboBox<String> comboBox1;
-
-    private GameLogic gameLogic;
 
     @FXML
     public void buttonReload() {

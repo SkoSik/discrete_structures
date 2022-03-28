@@ -14,6 +14,7 @@ public class Task10 implements Initializable {
 
     GameLogic gameLogic;
     BoolFunction binNumber;
+    private CheckBox[] checkBoxes;
 
     @FXML
     private Button button1;
@@ -21,7 +22,6 @@ public class Task10 implements Initializable {
     private Label label2, label3, label4;
     @FXML
     private CheckBox cb1, cb2, cb3, cb4, cb5;
-    private CheckBox[] checkBoxes;
 
     @FXML
     public void buttonReload() {
