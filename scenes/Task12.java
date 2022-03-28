@@ -33,7 +33,13 @@ public class Task12 implements Initializable {
             if (s.isEmpty())
                 return;
 
-            BoolFunction bool = new BoolFunction(s);
+            BoolFunction bool;
+            if (s.charAt(0) == '%')
+                bool = BoolFunction.randBoolFunction(Integer.parseInt(s.substring(1)));
+            else {
+                bool = new BoolFunction(s);
+            }
+
             ArrayList<String> nabori = new ArrayList<>(), ans = new ArrayList<>();
             int eds = 0;
             for (int i = 0; i < bool.array.length; i++)
