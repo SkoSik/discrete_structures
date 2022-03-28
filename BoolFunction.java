@@ -155,6 +155,18 @@ public class BoolFunction extends BinNumber {
         return true;
     }
 
+    public boolean[] getClasses() {
+        boolean[] classes = new boolean[5];
+
+        classes[0] = isSaveZero();
+        classes[1] = isSaveOne();
+        classes[2] = isSelfDuality();
+        classes[3] = isMonotony();
+        classes[4] = isLinear();
+
+        return classes;
+    }
+
     public void setVars(int _vars) {
         if ((array.length & (array.length - 1)) != 0)
             throw new IllegalArgumentException("Некорректная длина булевой функции");

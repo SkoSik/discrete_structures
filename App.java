@@ -18,13 +18,13 @@ public class App extends Application {
     private static MenuBar menuBar;
     private static Stage primaryStage;
 
-    public static final int MAX_VARS = 5;
+    public static final int MAX_VARS = 10;
 
     public static int VARS = 0;
-    public static int VMIN_BORDER = 1;
-    public static int VMAX_BORDER = 5;
-    public static boolean ATTEMTS = true;
-    public static int MAX_ATTEMTS = 10;
+    public static int VMIN_BORDER = 2;
+    public static int VMAX_BORDER = 3;
+    public static boolean ATTEMPTS = true;
+    public static int MAX_ATTEMPTS = 10;
 
     public static void main(String[] args) {
         Application.launch();

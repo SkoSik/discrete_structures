@@ -10,62 +10,62 @@
       prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
       fx:controller="discrete_structures.scenes.Task10">
     <children>
-        <CheckBox fx:id="cb1" layoutX="162.0" layoutY="207.0" mnemonicParsing="false" text="T₀">
+        <CheckBox fx:id="cb1" layoutX="166.0" layoutY="179.0" mnemonicParsing="false" text="T₀">
             <font>
                 <Font size="15.0"/>
             </font>
         </CheckBox>
-        <CheckBox fx:id="cb2" layoutX="222.0" layoutY="207.0" mnemonicParsing="false" text="T₁">
+        <CheckBox fx:id="cb2" layoutX="226.0" layoutY="179.0" mnemonicParsing="false" text="T₁">
             <font>
                 <Font size="15.0"/>
             </font>
         </CheckBox>
-        <CheckBox fx:id="cb3" layoutX="282.0" layoutY="207.0" mnemonicParsing="false" text="S">
+        <CheckBox fx:id="cb3" layoutX="286.0" layoutY="179.0" mnemonicParsing="false" text="S">
             <font>
                 <Font size="15.0"/>
             </font>
         </CheckBox>
-        <CheckBox fx:id="cb4" layoutX="342.0" layoutY="207.0" mnemonicParsing="false" text="M">
+        <CheckBox fx:id="cb4" layoutX="346.0" layoutY="179.0" mnemonicParsing="false" text="M">
             <font>
                 <Font size="15.0"/>
             </font>
         </CheckBox>
-        <CheckBox fx:id="cb5" layoutX="402.0" layoutY="207.0" mnemonicParsing="false" text="L">
+        <CheckBox fx:id="cb5" layoutX="406.0" layoutY="179.0" mnemonicParsing="false" text="L">
             <font>
                 <Font size="15.0"/>
             </font>
         </CheckBox>
-        <Label fx:id="label2" alignment="CENTER" layoutX="132.0" layoutY="161.0" prefHeight="26.0" prefWidth="357.0"
+        <Label fx:id="label2" alignment="CENTER" layoutX="126.0" layoutY="133.0" prefHeight="26.0" prefWidth="357.0"
                textAlignment="CENTER">
             <font>
                 <Font size="15.0"/>
             </font>
         </Label>
-        <Button fx:id="button1" layoutX="191.0" layoutY="287.0" mnemonicParsing="false" onAction="#buttonCheck"
+        <Button fx:id="button1" layoutX="185.0" layoutY="259.0" mnemonicParsing="false" onAction="#buttonCheck"
                 prefHeight="41.0" prefWidth="179.0" text="Проверить">
             <font>
                 <Font size="15.0"/>
             </font>
         </Button>
-        <Label layoutX="160.0" layoutY="95.0" prefHeight="55.0" prefWidth="300.0"
+        <Label layoutX="150.0" layoutY="67.0" prefHeight="55.0" prefWidth="300.0"
                text="Выбрать замкнутые классы, которым принадлежит данная функция" textAlignment="CENTER"
                wrapText="true">
             <font>
                 <Font size="15.0"/>
             </font>
         </Label>
-        <Label fx:id="label3" alignment="CENTER" layoutX="132.0" layoutY="245.0" prefHeight="21.0" prefWidth="357.0">
+        <Label fx:id="label3" alignment="CENTER" layoutX="122.0" layoutY="217.0" prefHeight="21.0" prefWidth="357.0">
             <font>
                 <Font size="15.0"/>
             </font>
         </Label>
-        <Button alignment="CENTER" layoutX="389.0" layoutY="287.0" mnemonicParsing="false" onAction="#buttonReload"
+        <Button alignment="CENTER" layoutX="383.0" layoutY="259.0" mnemonicParsing="false" onAction="#buttonReload"
                 prefHeight="41.0" prefWidth="41.0" text="🗘">
             <font>
                 <Font size="17.0"/>
             </font>
         </Button>
-        <Label fx:id="label4" alignment="CENTER" layoutX="131.0" layoutY="341.0" prefHeight="21.0" prefWidth="300.0"
+        <Label fx:id="label4" alignment="CENTER" layoutX="139.0" layoutY="313.0" prefHeight="21.0" prefWidth="272.0"
                text="Попыток: 0">
             <font>
                 <Font size="13.0"/>

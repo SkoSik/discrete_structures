@@ -35,8 +35,8 @@ public class Settings implements Initializable {
     public void save() {
         error.setText("");
         try {
-            App.MAX_ATTEMTS = Integer.parseInt(attemts.getText());
-            App.ATTEMTS = checkBoxAttemts.isSelected();
+            App.MAX_ATTEMPTS = Integer.parseInt(attemts.getText());
+            App.ATTEMPTS = checkBoxAttemts.isSelected();
             App.VARS = checkBoxRandVars.isSelected() ? 0 : parseToInt(comboBoxVars.getValue());
 
             int min = parseToInt(comboBoxMin.getValue());
@@ -71,7 +71,7 @@ public class Settings implements Initializable {
     }
 
     private void load() {
-        checkBoxAttemts.setSelected(App.ATTEMTS);
+        checkBoxAttemts.setSelected(App.ATTEMPTS);
 
         choice = (App.VARS == 0) ? true : false;
         checkBoxRandVars.setSelected(choice);
@@ -81,9 +81,9 @@ public class Settings implements Initializable {
         comboBoxMax.setValue(App.VMAX_BORDER);
         comboBoxVars.setValue(App.VARS == 0 ? 1 : App.VARS);
 
-        attemts.setDisable(!App.ATTEMTS);
+        attemts.setDisable(!App.ATTEMPTS);
 
-        attemts.setText(String.valueOf(App.MAX_ATTEMTS));
+        attemts.setText(String.valueOf(App.MAX_ATTEMPTS));
     }
 
     @Override

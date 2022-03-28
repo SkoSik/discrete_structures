@@ -24,10 +24,8 @@ public class Task7 implements Initializable {
 
     @FXML
     Button b1, b2, b3, b4, b5, bCheck;
-
     @FXML
     TextArea textarea;
-
     @FXML
     Label label1, label2, label3;
 

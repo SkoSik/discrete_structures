@@ -58,13 +58,6 @@ public class Task12 implements Initializable {
         public int[] highPrecalc;
         ArrayList<String> terms, sdnfs;
 
-        public matrix() {
-            table = null;
-            high = width = 0;
-            highPrecalc = null;
-            terms = sdnfs = null;
-        }
-
         public matrix(int _high, int _width) {
             width = _width;
             high = _high;
@@ -94,14 +87,6 @@ public class Task12 implements Initializable {
                         highPrecalc[j]++;
                     }
                 }
-            }
-        }
-
-        public void matrixout() {
-            for (int[] i : table) {
-                for (int j : i)
-                    System.out.print(j);
-                System.out.println();
             }
         }
 
@@ -263,6 +248,5 @@ public class Task12 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 }

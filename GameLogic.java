@@ -17,7 +17,7 @@ public class GameLogic {
 
         labelAns.setTextFill(Color.color(0.7, 0, 0));
 
-        if (!App.ATTEMTS) {
+        if (!App.ATTEMPTS) {
             labelAttemts.setVisible(false);
         }
 
@@ -31,7 +31,7 @@ public class GameLogic {
         } else {
             labelAns.setText("Неправильно");
             labelAttemts.setText("Попыток: " + (++attemts));
-            if (!App.ATTEMTS || attemts >= App.MAX_ATTEMTS) {
+            if (!App.ATTEMPTS || attemts >= App.MAX_ATTEMPTS) {
                 checkAns.setDisable(true);
             }
         }

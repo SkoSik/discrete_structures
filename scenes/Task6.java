@@ -1,186 +1,80 @@
 package discrete_structures.scenes;
 
-import discrete_structures.BoolFunction;
-import discrete_structures.Mask;
-import discrete_structures.SDNF;
+import discrete_structures.*;
+import discrete_structures.SKNF;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
-import discrete_structures.BinNumber;
-import javafx.scene.paint.Color;
-
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 
 public class Task6 implements Initializable {
 
+    GameLogic gameLogic;
+
     BoolFunction bin;
-    Mask mask;
+    String mask;
 
     @FXML
-    Button btn1, btn2, btn3, btn4, btn5, btnNot, btnOr, megabtn, btnDelete;
-
+    Button b1, b2, b3, b4, b5, bCheck;
     @FXML
     TextArea textarea;
+    @FXML
+    Label label1, label2, label3;
 
     @FXML
-    Label label, label2;
-    String DNF = "";
-
-    @FXML
-    public void btn1Clicked() {
-        btnClick(0);
+    private void buttonClick(ActionEvent e) {
+        String id = ((Button) e.getSource()).getText();
+        mask += (id.length() > 1) ? id.charAt(1) : id;
+        textarea.setText(textarea.getText() + id);
     }
 
     @FXML
-    public void btn2Clicked() {
-        btnClick(1);
-    }
-
-    @FXML
-    public void btn3Clicked() {
-        btnClick(2);
-    }
-
-    @FXML
-    public void btn4Clicked() {
-        btnClick(3);
-    }
-
-    @FXML
-    public void btn5Clicked() {
-        btnClick(4);
-    }
-
-    @FXML
-    public void btnNotClicked() {
-        label.setText("");
-        if(DNF.length() != 0 && DNF.charAt(DNF.length()-1) == '¬')
-            DNF = DNF.substring(0,DNF.length()-1);
-        else
-            DNF += "¬";
-
-        textarea.setText(DNF);
-    }
-
-    @FXML
-    public void btnOrClicked() {
-        label.setText("");
-        try{
-            if(DNF.length() == 0)
-                throw new Exception("нельзя ставить V в самом начале");
-            if(DNF.charAt(DNF.length()-1) == '¬')
-                throw new Exception("нельзя ставить V после ¬");
-            if(DNF.charAt(DNF.length()-1) == 'V')
-                return;
-
-            mask.newMask();
-
-            DNF += "V";
-            textarea.setText(DNF);
-        }
-        catch (Exception e){
-            message(false, e.getMessage());
-        }
-    }
-
-    @FXML
-    public void megabtnClicked() {
-        label.setText("");
+    private void buttonCheck() {
         try {
-            if (DNF.length() != 0 && (DNF.charAt(DNF.length() - 1) == 'V' || DNF.charAt(DNF.length() - 1) == '¬'))
-                throw new Exception("закончите выражение");
-            SDNF solution = new SDNF(mask.getVarState(), bin.vars);
-            BoolFunction b = new BoolFunction(solution, bin.vars);
-            if((!DNF.isEmpty() && b.equals(bin)) || (DNF.isEmpty() && bin.parseToInt() == 0)) {
-                message(true, "Правильно");
-            }
-            else {
-                message(false, "Неправильно");
-            }
+            SDNF sdnf = SDNF.build(mask, bin.vars);
+            BoolFunction test = new BoolFunction(sdnf, bin.vars);
+            gameLogic.check(test.equals(bin));
+        } catch (IllegalArgumentException e) {
+            label1.setText(e.getMessage());
         }
-        catch (Exception e){
-            message(false, e.getMessage());
-        }
-    }
-    @FXML
-    public void btnNextClicked(){
-        label.setText("");
-        DNF = "";
-        textarea.setText("");
-        initNewTask();
     }
 
     @FXML
-    public void btnDeleteClicked(){
-        int DNFsz = DNF.length();
-        if(DNFsz == 0)
-            return;
-        char Symb = DNF.charAt(DNFsz - 1);
-        int ind = Symb - '0' - 1;
-        if(Symb >= '1' && Symb <= '9') {
-            mask.decreaseEx(ind);
-            if(mask.checkEx(ind) == 0)
-                mask.changeState(ind, 'x');
-            DNF = DNF.substring(0, DNFsz - 2);
+    private void buttonDelete() {
+        String knf = textarea.getText();
+        if (!(knf.length() == 0)) {
+            int last = mask.charAt(mask.length() - 1);
+            last = (last > 48 && last < 54) ? 2 : 1;
+            textarea.setText(knf.substring(0, knf.length() - last));
+            mask = mask.substring(0, mask.length() - 1);
         }
-        else if(Symb == 'V') {
-            mask.deleteOneMask();
-            DNF = DNF.substring(0, DNFsz - 1);
-        }
-        else
-            DNF = DNF.substring(0, DNFsz - 1);
-
-        textarea.setText(DNF);
     }
 
-    public boolean checkNot(){
-        if(DNF.length() == 0) return false;
-        return DNF.charAt(DNF.length() - 1) == '¬';
-    }
-
-    public void btnClick(int i){
-        label.setText("");
-        if(checkNot())
-            mask.changeState(i, '0');
-        else if(mask.checkState(i) != '0')
-            mask.changeState(i, '1');
-
-        mask.increaseEx(i);
-        String str = "x" + String.valueOf(i+1);
-        DNF += str;
-        textarea.setText(DNF);
-    }
-    public void initNewTask(){
-        label.setTextFill(Color.color(0.7, 0, 0));
-        label.setText("");
+    @FXML
+    private void buttonReload() {
         textarea.setText("");
-        bin = BoolFunction.randBoolFunction(BinNumber.randInt(5)+1);
-//        bin = new BoolFunction("11");
-        mask = new Mask(bin.vars);
-        label2.setText(bin.toString());
-        Button[] b = {btn1, btn2, btn3, btn4, btn5};
-        for(int i = 0; i < 5; i++)
+        mask = "";
+
+        bin = BoolFunction.randBoolFunction(GameLogic.getVars());
+        label2.setText(bin.toOutput());
+
+        Button[] b = {b1, b2, b3, b4, b5};
+        for (int i = 0; i < 5; i++)
             b[i].setVisible(i < bin.vars);
 
-        mask = new Mask(bin.vars);
-        for(char[] i : mask.getVarState())
-            System.out.println(i);
+        gameLogic.reload();
     }
-    public void message(boolean bool, String s){
-        if(bool)
-            label.setTextFill(Color.color(0, 0.7, 0));
-        else
-            label.setTextFill(Color.color(0.7, 0, 0));
-        label.setText(s);
-    }
-    @Override
+
     public void initialize(URL location, ResourceBundle resources) {
-        textarea.setEditable(false);
-        initNewTask();
+        gameLogic = new GameLogic(bCheck, label1, label3);
+        buttonReload();
     }
 }

@@ -38,12 +38,7 @@ public class Task10 implements Initializable {
 
     @FXML
     public void buttonCheck() {
-        Boolean[] fullness = new Boolean[5];
-        fullness[0] = binNumber.isSaveZero();
-        fullness[1] = binNumber.isSaveOne();
-        fullness[2] = binNumber.isSelfDuality();
-        fullness[3] = binNumber.isMonotony();
-        fullness[4] = binNumber.isLinear();
+        boolean[] fullness = binNumber.getClasses();
 
         boolean ans = true;
         for (int i = 0; i < 5; i++) {

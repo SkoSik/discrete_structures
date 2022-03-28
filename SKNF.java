@@ -42,7 +42,7 @@ public class SKNF extends NF {
                 } else {
                     if (a == 'V') {
                         if (!isVar) throw new IllegalArgumentException("Некорректный КНФ");
-                    } else if (a == '¬') isNeg = (isNeg == true) ? false : true;
+                    } else if (a == '¬') isNeg = !isNeg;
                     else {
                         bracket += a;
                         isBrackets = true;
@@ -50,7 +50,7 @@ public class SKNF extends NF {
                     isVar = false;
                 }
             }
-            if (!isBrackets && ((sknf.length > 1 && usedVars > 1) || usedVars > 1))
+            if (!isBrackets && usedVars > 1)
                 throw new IllegalArgumentException("Некорректный КНФ");
 
             mask.add(maskElem);
