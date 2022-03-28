@@ -1,6 +1,7 @@
 package discrete_structures.scenes;
 
 import discrete_structures.BoolFunction;
+import discrete_structures.GameLogic;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,11 +16,13 @@ import discrete_structures.BinNumber;
 import javafx.scene.control.TextField;
 
 public class Task5 implements Initializable {
+    GameLogic gameLogic;
+    BoolFunction bn;
 
     @FXML
     private Button button1;
     @FXML
-    private Label label2, label3, label4, label5, error;
+    private Label label2, label3, label4;
     @FXML
     private TextField textfield1, textfield2;
 
@@ -38,29 +41,21 @@ public class Task5 implements Initializable {
             if (bn.checkFictitiousness(i)) true_fic += i;
             else true_suc += i;
         }
-        if (suc.equals(true_suc) & fic.equals(true_fic)) {
-            label5.setText("Ответ правильный\nСущественные переменные: " + true_suc + "\nФиктивные переменные: " + true_fic);
-        } else {
-            label5.setText("Ответ неправильный\nСущественные переменные: " + true_suc + "\nФиктивные переменные: " + true_fic);
-        }
-        button1.setDisable(true);
+        gameLogic.check(suc.equals(true_suc) & fic.equals(true_fic));
     }
 
     @FXML
-    public void buttonClicked1() {
-        new_vector();
-        button1.setDisable(false);
-    }
+    public void buttonReload() {
+        bn = BoolFunction.randBoolFunction(GameLogic.getVars());
+        label2.setText(bn.toOutput());
 
-    BoolFunction bn;
-
-    public void new_vector() {
-        bn = BoolFunction.randBoolFunction(BinNumber.randInt(4) + 1);
-        label2.setText(bn.toString());
+        gameLogic.reload();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        new_vector();
+        gameLogic = new GameLogic(button1, label3, label4);
+
+        buttonReload();
     }
 }

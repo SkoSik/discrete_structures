@@ -79,6 +79,13 @@ public class BoolFunction extends BinNumber {
     }
 
     public static BoolFunction randBoolFunction(int _vars) {
+        if (_vars > 4) {
+            int[] array = new int[pow(2, _vars)];
+            for (int i = 0; i < array.length; i++) {
+                array[i] = randInt(2);
+            }
+            return new BoolFunction(array, _vars);
+        }
         return new BoolFunction(parseIntToBin(randInt(pow(2, pow(2, _vars))), _vars), _vars);
     }
 
