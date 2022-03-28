@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import discrete_structures.BinNumber;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
@@ -18,6 +19,8 @@ public class Task12 implements Initializable {
     static Set<Integer> bestset = new HashSet<>();
     @FXML
     Label label;
+    @FXML
+    TextArea textarea;
 
     @FXML
     TextField textfield;
@@ -25,7 +28,7 @@ public class Task12 implements Initializable {
     @FXML
     public void btnClicked() {
         try {
-            label.setTextFill(Color.color(0, 0, 0));
+            label.setText("");
             String s = textfield.getText();
             if (s.isEmpty())
                 return;
@@ -40,14 +43,14 @@ public class Task12 implements Initializable {
                 }
 
             if (eds == s.length()) {
-                label.setText("¬x1 V x1");
+                textarea.setText("¬x1 V x1");
                 return;
             }
             termReduction(nabori, ans);
             String dnfStr = consume(ans, nabori);
-            label.setText(dnfStr);
-        } catch (Exception e) {
-            label.setTextFill(Color.color(0.7, 0, 0));
+            textarea.setText(dnfStr);
+        }
+        catch (Exception e) {
             label.setText(e.getMessage());
         }
     }
@@ -248,5 +251,6 @@ public class Task12 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        textarea.setEditable(false);
     }
 }
