@@ -20,15 +20,21 @@ public class SDNF extends NF {
         ArrayList<char[]> mask = new ArrayList<>();
 
         for (int i = 0; i < sdnf.length; i++) {
+            if (sdnf[i].length() == 0) throw new IllegalArgumentException("Некорректный ДНФ");
             char[] maskElem = new char[vars];
             for (int j = 0; j < vars; j++) maskElem[j] = 'x';
-            boolean neg = false;
+            boolean neg = false, isVar = false;
             for (int j = 0; j < sdnf[i].length(); j++) {
                 char a = sdnf[i].charAt(j);
-                if (a == '¬') {
-                    neg = (neg == true) ? false : true;
-                } else {
+                if (a > 48 && a < 48 + App.MAX_VARS) {
                     maskElem[a - 49] = neg ? '0' : '1';
+                    neg = false;
+                    isVar = true;
+                } else {
+                    if (a == '∧') {
+                        if (!isVar) throw new IllegalArgumentException("Некорректный ДНФ");
+                    } else if (a == '¬') neg = !neg;
+                    isVar = false;
                 }
             }
             mask.add(maskElem);
