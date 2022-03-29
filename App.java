@@ -20,7 +20,7 @@ public class App extends Application {
     public static int VMIN_BORDER = 2;
     public static int VMAX_BORDER = 3;
     public static boolean ATTEMPTS = true;
-    public static int MAX_ATTEMPTS = 10;
+    public static int MAX_ATTEMPTS = 7;
 
     public static void main(String[] args) {
         Application.launch();

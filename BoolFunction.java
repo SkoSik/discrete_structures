@@ -136,9 +136,12 @@ public class BoolFunction extends BinNumber {
         for (int i = 0; i < length; i++) {
             int wi = binNumbers[i].getWeight();
             for (int j = i + 1; j < length; j++) {
-                int wj = binNumbers[j].getWeight();
-                if ((wi - wj == 1 && getValue(i) < getValue(j)) || (wj - wi == 1 && getValue(j) < getValue(i)))
-                    return false;
+                if (binNumbers[i].isNeighbors(binNumbers[j])) {
+                    int wj = binNumbers[j].getWeight();
+                    if ((wi - wj == 1 && getValue(i) < getValue(j)) || (wj - wi == 1 && getValue(j) < getValue(i))) {
+                        return false;
+                    }
+                }
             }
         }
         return true;

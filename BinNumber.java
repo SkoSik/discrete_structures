@@ -77,6 +77,17 @@ public class BinNumber {
         return binNumbers;
     }
 
+    public boolean isNeighbors(BinNumber a) {
+        boolean k = false;
+        for (int i = 0; i < length; i++) {
+            if (getValue(i) != a.getValue(i)) {
+                if (k) return false;
+                else k = true;
+            }
+        }
+        return k;
+    }
+
     public static int sum2(int a, int b) {
         return (a + b == 2) ? 0 : a + b;
     }
